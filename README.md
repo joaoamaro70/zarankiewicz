@@ -55,7 +55,7 @@ It tests every triple of rows and, independently, every triple of columns.
 | `verify.py` | independent verifier |
 | `search/` | the local search (C + OpenMP) and a script to build and run it |
 | `literature.py` | bounds from the literature (with sources), closed under the elementary rules; writes `literature.csv` for all 72 cells |
-| `sat/` | SAT encodings (Kissat) and their self-tests; also an independent per-profile check of z(13,22) ≤ 137, still in progress |
+| `sat/` | SAT encodings (Kissat) and their self-tests; also an attempted independent per-profile check of z(13,22) ≤ 137, which did not finish (see below) |
 | `paper/` | the LaTeX note; `paper/build.sh` regenerates its tables from `results/` |
 | `Dockerfile` | Ubuntu 24.04 with gcc, Python, TeX Live and Kissat |
 
@@ -69,3 +69,15 @@ docker run --rm -v "$PWD:/work" zaran ./paper/build.sh            # rebuild the 
 
 The search compiles inside the container with `-march=native`, resumes from
 `results/`, and saves every improvement there.
+
+## Attempted check of z(13,22) ≤ 137
+
+Twelve upper bounds in the note depend on z(13,22) = 137, whose upper bound comes from a
+computer-assisted proof in a preprint (arXiv:2608.08154). We tried to check it
+independently. A counting argument (`sat/afr_step1.py`) leaves 83 column-degree profiles
+for a 13×22 matrix with 138 ones, as stated in the preprint. We then asked Kissat, profile
+by profile, whether a valid matrix exists (`sat/profile_sat.py`, rows in lexicographic
+order, columns sorted by degree). The method is correct on small known cases
+(`sat/profile_test.sh`, e.g. z(10,11) = 64), but at 13×22 each of the 30 profiles that
+ran for the full 2-hour limit timed out, including a control profile that is known to be
+satisfiable; we then stopped the remaining runs. A stronger encoding would be needed.
