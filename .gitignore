@@ -15,6 +15,9 @@ __pycache__/
 
 # logs e execucoes intermediarias
 *.log
+results/summary.csv
+results/verify.txt
+results/literature.txt
 bench/
 sat/runs/
 sat/prun/

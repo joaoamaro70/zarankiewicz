@@ -1,22 +1,23 @@
-// zaran2.c — busca local para limites inferiores de Z(m,n,3,3), versao 2.
+// zaran.c — busca local para limites inferiores de Z(m,n,3,3).
 // Matriz binaria m x n sem submatriz 3x3 toda de uns <=> quaisquer 3 linhas
 // compartilham no maximo 2 colunas com 1.
 //
-// Em relacao ao prototipo (zaran.c):
+// Ingredientes (ver a nota em paper/, Algoritmo 1):
+//   - rip-up and repair e recozimento simulado (adicionar + reparar conflitos);
 //   - semeadura entre vizinhos: toda melhora em (m,n) gera sementes para
 //     (m,n+-1) e (m+-1,n) (adicionar/remover linha/coluna + completamento guloso);
-//   - casos que atingiram UP saem da fila; fatias sorteadas com peso 1+(UP-melhor);
+//   - casos que atingiram o limite superior saem da fila; fatias sorteadas com
+//     peso 1+(UB-melhor);
 //   - fatias "simetricas": busca sobre orbitas de Z_p agindo em blocos circulantes
 //     (m = a*p + r0, n = b*p + c0), completadas gulosamente e usadas como sementes;
-//   - motor alternativo de recozimento simulado (adicionar + reparar conflitos);
-//   - casos fechados da tabela tambem rodam (ate atingir UP) e servem de semente.
+//   - casos ja fechados tambem rodam (ate atingir o UB) e servem de semente.
 //
-// Compilar:  gcc -O3 -march=native -fopenmp -o zaran2 zaran2.c -lm
-// Rodar:     ./zaran2 [-t horas] [-m mmin] [-M mmax] [-n nmin] [-N nmax]
-//                     [-s fatia_seg] [-e rr|sa|mix] [-d dir_resultados]
-//                     [-S (sem semeadura)] [-C (sem simetricas)] [-P (sem prioridade)]
-//                     [-q (so casos abertos)]
-// Le bars.csv (gerado por bars.py) do diretorio atual, se existir.
+// Compilar:  gcc -O3 -march=native -fopenmp -o zaran zaran.c -lm   (ou search/run.sh)
+// Rodar:     ./zaran [-t horas] [-m mmin] [-M mmax] [-n nmin] [-N nmax]
+//                    [-s fatia_seg] [-e rr|sa|mix] [-d dir_resultados]
+//                    [-S (sem semeadura)] [-C (sem simetricas)] [-P (sem prioridade)]
+//                    [-q (so casos abertos)]
+// Retoma a partir de dir_resultados/Z_m_n.txt e salva cada melhora ali.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -187,17 +188,6 @@ static int up_lit(int m, int n) {
     return u;
 }
 
-static void load_bars(void) {
-    FILE *f = fopen("bars.csv", "r");
-    if (!f) { fprintf(stderr, "aviso: bars.csv nao encontrado; barra = LO\n"); return; }
-    char line[512];
-    while (fgets(line, sizeof line, f)) {
-        int m, n, up, lo, bar;
-        if (sscanf(line, "%d,%d,%d,%d,%d", &m, &n, &up, &lo, &bar) != 5) continue;
-        if (m <= MAXM && n <= 32 && cidx[m][n] >= 0) cases[cidx[m][n]].bar = bar;
-    }
-    fclose(f);
-}
 
 // ---------- arquivos ----------
 static void save_case(Case *cs) {
@@ -710,7 +700,6 @@ int main(int argc, char **argv) {
             cidx[m][n] = ncases++;
         }
     if (ncases == 0) { fprintf(stderr, "nenhum caso\n"); return 1; }
-    load_bars();
 
     int nthreads = omp_get_max_threads();
     printf("Z(m,n,3,3) v2: %d casos, %d threads, %.2f h, fatias de %.0f s, motor %s, "

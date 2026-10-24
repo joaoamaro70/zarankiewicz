@@ -1,23 +1,20 @@
-# Nota: Improved lower bounds for z(m,n;3,3)
+# The note
 
-Compilar e empacotar (no container, da raiz do projeto):
+Build (from the repository root):
 
 ```bash
-docker run --rm -v "${PWD}:/work" zaran bash -c "./paper/build.sh && bash paper/pack.sh"
+docker run --rm -v "$PWD:/work" zaran ./paper/build.sh
 ```
 
-`build.sh` roda `literature.py` e `make_tables.py` (tabelas, macros, apêndice e `anc/`
-a partir de `results/`) e compila `main.pdf`. `pack.sh` gera `arxiv.tar.gz`.
+`build.sh` runs `literature.py` and `make_tables.py`, which regenerate the table, the
+figure, the drawn matrices (`gen/`) and the ancillary files (`anc/`) from `results/`,
+and then compiles `main.pdf`.
 
-## Estado (2026-10-18)
+To prepare the arXiv upload:
 
-- [x] Resultados finais: 18 casos acima da literatura, todos verificados.
-- [x] Horas de execução, frase da semeadura e tentativa de SAT atualizadas no texto.
-- [x] Última busca no arXiv (nada sobre z(m,n;3,3) depois de ago/2026).
-- [x] Referências conferidas.
-- [x] Autor, cidade e e-mail em `main.tex`.
-- [ ] Leitura final pelo autor (e, de preferência, por um ex-professor).
+```bash
+docker run --rm -v "$PWD:/work" zaran bash -c "bash paper/pack.sh && bash paper/testpack.sh"
+```
 
-## Submissão ao arXiv
-
-Subir `arxiv.tar.gz` (o arXiv trata `anc/` como ancillary files). Categoria: math.CO.
+`pack.sh` writes `arxiv.tar.gz`; arXiv treats its `anc/` folder (the matrices and the
+verifier) as ancillary files. `testpack.sh` unpacks it in a clean folder and compiles it.
