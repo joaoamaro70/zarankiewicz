@@ -1,44 +1,73 @@
-m,n,UP_fig2,LO_artigo,UB_lit,fonte_UB,LB_lit,fonte_LB,nosso,status,UB_publicado,fonte_UB_publicado
-9,23,104,103,104,Fig2/Davies26,103,Bhan26,103,igual à literatura,104,Fig2/Davies26
-10,20,102,99,102,Fig2/Davies26,102,Tan22,102,já fechado na literatura,102,Fig2/Davies26
-10,21,108,106,106,"Z(9,21) [densidade]",106,Bhan26,106,NOVO: fecha o caso,108,Fig2/Davies26
-10,22,111,110,111,Fig2/Davies26,110,Bhan26,110,igual à literatura,111,Fig2/Davies26
-10,23,115,112,115,Fig2/Davies26,112,Bhan26,112,igual à literatura,115,Fig2/Davies26
-11,18,101,97,101,Fig2/Davies26,101,Tan22,101,já fechado na literatura,101,Fig2/Davies26
-11,19,108,102,106,"Z(11,18) [densidade]",106,"Z(11,20)-floor(111/20)",106,NOVO: fecha o caso,108,Fig2/Davies26
-11,20,112,111,111,"Z(11,19) [densidade]",111,Bhan26,111,NOVO: fecha o caso,112,Fig2/Davies26
-11,23,125,118,125,Fig2/Davies26,123,"Z(11,22)+2",123,igual à literatura,125,Fig2/Davies26
-12,17,108,102,103,Collins16,103,Collins16,103,já fechado na literatura,103,Collins16
-12,18,113,108,108,Afrasyab26/Hou26,108,Bhan26,108,já fechado na literatura,108,Afrasyab26/Hou26
-12,19,118,110,114,Afrasyab26,114,Afrasyab26,114,já fechado na literatura,114,Afrasyab26
-12,20,122,113,120,Afrasyab26,120,Afrasyab26,120,já fechado na literatura,120,Afrasyab26
-12,21,127,116,126,Afrasyab26,126,Afrasyab26,126,já fechado na literatura,126,Afrasyab26
-12,23,136,125,136,Fig2/Davies26,134,"Z(12,22)+2",134,igual à literatura,136,Fig2/Davies26
-13,17,116,106,110,Collins16,110,Hou26,110,já fechado na literatura,110,Collins16
-13,18,121,115,116,Collins16,116,Hou26,116,já fechado na literatura,116,Collins16
-13,19,125,114,122,"Z(13,18) [densidade]",119,"Z(13,20)-floor(125/20)",120,NOVO: supera a literatura,125,Fig2/Davies26
-13,20,130,119,128,"Z(13,19) [densidade]",125,"Z(13,21)-floor(131/21)",125,igual à literatura,130,Fig2/Davies26
-13,21,135,127,134,"Z(13,20) [densidade]",131,"Z(13,22)-floor(137/22)",131,igual à literatura,135,Fig2/Davies26
-13,22,140,137,137,Afrasyab26,137,Bhan26,137,já fechado na literatura,137,Afrasyab26
-13,23,145,135,143,"Z(13,22) [densidade]",139,"Z(13,22)+2",140,NOVO: supera a literatura,145,Fig2/Davies26
-14,17,124,118,118,Collins16,118,Bhan26,118,já fechado na literatura,118,Collins16
-14,18,129,124,124,Collins16,124,Bhan26,124,já fechado na literatura,124,Collins16
-14,19,135,121,130,"Z(14,18) [densidade]",126,Saurabh26,128,NOVO: supera a literatura,135,Fig2/Davies26
-14,20,140,125,136,"Z(14,19) [densidade]",129,"Z(15,20)-floor(138/15)",131,NOVO: supera a literatura,140,Fig2/Davies26
-14,21,145,131,142,"Z(14,20) [densidade]",133,"Z(13,21)+2",136,NOVO: supera a literatura,145,Fig2/Davies26
-14,22,150,137,147,"Z(13,22) [densidade]",139,"Z(13,22)+2",142,NOVO: supera a literatura,150,Fig2/Davies26
-14,23,155,138,153,"Z(14,22) [densidade]",141,"Z(13,23)+2",146,NOVO: supera a literatura,155,Fig2/Davies26
-15,17,132,125,126,Collins16,126,Hou26,126,já fechado na literatura,126,Collins16
-15,18,138,132,132,Collins16,132,Bhan26,132,já fechado na literatura,132,Collins16
-15,19,143,132,139,"Z(15,18) [densidade]",134,"Z(15,18)+2",136,NOVO: supera a literatura,143,Fig2/Davies26
-15,20,149,138,145,"Z(14,20) [densidade]",138,Bhan26,139,NOVO: supera a literatura,149,Fig2/Davies26
-15,21,154,139,152,"Z(14,21) [densidade]",140,"Z(15,20)+2",144,NOVO: supera a literatura,154,Fig2/Davies26
-15,22,160,143,157,"Z(14,22) [densidade]",143,Bhan26,150,NOVO: supera a literatura,160,Fig2/Davies26
-15,23,165,149,163,"Z(14,23) [densidade]",149,Bhan26,156,NOVO: supera a literatura,165,Fig2/Davies26
-16,17,141,128,133,Collins16,132,Afrasyab26,132,igual à literatura,133,Collins16
-16,18,146,130,140,Collins16,136,Saurabh26,137,NOVO: supera a literatura,140,Collins16
-16,19,152,132,147,"Z(16,18) [densidade]",139,"Z(16,20)-floor(146/20)",142,NOVO: supera a literatura,152,Fig2/Davies26
-16,20,158,146,154,"Z(16,19) [densidade]",146,Bhan26,147,NOVO: supera a literatura,158,Fig2/Davies26
-16,21,164,147,161,"Z(16,20) [densidade]",148,"Z(16,20)+2",152,NOVO: supera a literatura,164,Fig2/Davies26
-16,22,169,149,167,"Z(15,22) [densidade]",152,"Z(16,23)-floor(158/23)",158,NOVO: supera a literatura,169,Fig2/Davies26
-16,23,175,158,173,"Z(15,23) [densidade]",158,Bhan26,163,NOVO: supera a literatura,175,Fig2/Davies26
+m,n,aberto_BNRL26,UP_fig2,LO_artigo,UB_lit,fonte_UB,LB_lit,fonte_LB,nosso,status,UB_publicado,fonte_UB_publicado
+8,16,0,70,70,70,Fig2/Davies26,70,Bhan26,70,já fechado na literatura,70,Fig2/Davies26
+8,17,0,74,74,74,Fig2/Davies26,74,Bhan26,74,já fechado na literatura,74,Fig2/Davies26
+8,18,0,77,77,77,Fig2/Davies26,77,Bhan26,77,já fechado na literatura,77,Fig2/Davies26
+8,19,0,81,81,81,Fig2/Davies26,81,Bhan26,81,já fechado na literatura,81,Fig2/Davies26
+8,20,0,84,84,84,Fig2/Davies26,84,Bhan26,84,já fechado na literatura,84,Fig2/Davies26
+8,21,0,87,87,87,Fig2/Davies26,87,Bhan26,87,já fechado na literatura,87,Fig2/Davies26
+8,22,0,90,90,90,Fig2/Davies26,90,Bhan26,90,já fechado na literatura,90,Fig2/Davies26
+8,23,0,94,94,94,Fig2/Davies26,94,Bhan26,94,já fechado na literatura,94,Fig2/Davies26
+9,16,0,77,77,77,Fig2/Davies26,77,Bhan26,77,já fechado na literatura,77,Fig2/Davies26
+9,17,0,81,81,81,Fig2/Davies26,81,Bhan26,81,já fechado na literatura,81,Fig2/Davies26
+9,18,0,85,85,85,Fig2/Davies26,85,Bhan26,85,já fechado na literatura,85,Fig2/Davies26
+9,19,0,89,89,89,Fig2/Davies26,89,Bhan26,89,já fechado na literatura,89,Fig2/Davies26
+9,20,0,93,93,93,Fig2/Davies26,93,Bhan26,93,já fechado na literatura,93,Fig2/Davies26
+9,21,0,96,96,96,Fig2/Davies26,96,Bhan26,96,já fechado na literatura,96,Fig2/Davies26
+9,22,0,100,100,100,Fig2/Davies26,100,Bhan26,100,já fechado na literatura,100,Fig2/Davies26
+9,23,1,104,103,104,Fig2/Davies26,103,Bhan26,103,igual à literatura,104,Fig2/Davies26
+10,16,0,85,85,85,Fig2/Davies26,85,Bhan26,85,já fechado na literatura,85,Fig2/Davies26
+10,17,0,90,90,90,Fig2/Davies26,90,Bhan26,90,já fechado na literatura,90,Fig2/Davies26
+10,18,0,94,94,94,Fig2/Davies26,94,Bhan26,94,já fechado na literatura,94,Fig2/Davies26
+10,19,0,98,98,98,Fig2/Davies26,98,Bhan26,98,já fechado na literatura,98,Fig2/Davies26
+10,20,1,102,99,102,Fig2/Davies26,102,Tan22,102,já fechado na literatura,102,Fig2/Davies26
+10,21,1,108,106,106,"Z(9,21) [densidade]",106,Bhan26,106,NOVO: fecha o caso,108,Fig2/Davies26
+10,22,1,111,110,111,Fig2/Davies26,110,Bhan26,110,igual à literatura,111,Fig2/Davies26
+10,23,1,115,112,115,Fig2/Davies26,112,Bhan26,112,igual à literatura,115,Fig2/Davies26
+11,16,0,92,92,92,Fig2/Davies26,92,Bhan26,92,já fechado na literatura,92,Fig2/Davies26
+11,17,0,96,96,96,Fig2/Davies26,96,Bhan26,96,já fechado na literatura,96,Fig2/Davies26
+11,18,1,101,97,101,Fig2/Davies26,101,Tan22,101,já fechado na literatura,101,Fig2/Davies26
+11,19,1,108,102,106,"Z(11,18) [densidade]",106,"Z(11,20)-floor(111/20)",106,NOVO: fecha o caso,108,Fig2/Davies26
+11,20,1,112,111,111,"Z(11,19) [densidade]",111,Bhan26,111,NOVO: fecha o caso,112,Fig2/Davies26
+11,21,0,116,116,116,Fig2/Davies26,116,Bhan26,116,já fechado na literatura,116,Fig2/Davies26
+11,22,0,121,121,121,Fig2/Davies26,121,Bhan26,121,já fechado na literatura,121,Fig2/Davies26
+11,23,1,125,118,125,Fig2/Davies26,123,"Z(11,22)+2",123,igual à literatura,125,Fig2/Davies26
+12,16,0,99,99,99,Fig2/Davies26,99,Bhan26,99,já fechado na literatura,99,Fig2/Davies26
+12,17,1,108,102,103,Collins16,103,Collins16,103,já fechado na literatura,103,Collins16
+12,18,1,113,108,108,Afrasyab26/Hou26,108,Bhan26,108,já fechado na literatura,108,Afrasyab26/Hou26
+12,19,1,118,110,114,Afrasyab26,114,Afrasyab26,114,já fechado na literatura,114,Afrasyab26
+12,20,1,122,113,120,Afrasyab26,120,Afrasyab26,120,já fechado na literatura,120,Afrasyab26
+12,21,1,127,116,126,Afrasyab26,126,Afrasyab26,126,já fechado na literatura,126,Afrasyab26
+12,22,0,132,132,132,Fig2/Davies26,132,Bhan26,132,já fechado na literatura,132,Fig2/Davies26
+12,23,1,136,125,136,Fig2/Davies26,134,"Z(12,22)+2",134,igual à literatura,136,Fig2/Davies26
+13,16,0,107,107,107,Fig2/Davies26,107,Bhan26,107,já fechado na literatura,107,Fig2/Davies26
+13,17,1,116,106,110,Collins16,110,Hou26,110,já fechado na literatura,110,Collins16
+13,18,1,121,115,116,Collins16,116,Hou26,116,já fechado na literatura,116,Collins16
+13,19,1,125,114,122,"Z(13,18) [densidade]",119,"Z(13,20)-floor(125/20)",120,NOVO: supera a literatura,125,Fig2/Davies26
+13,20,1,130,119,128,"Z(13,19) [densidade]",125,"Z(13,21)-floor(131/21)",125,igual à literatura,130,Fig2/Davies26
+13,21,1,135,127,134,"Z(13,20) [densidade]",131,"Z(13,22)-floor(137/22)",131,igual à literatura,135,Fig2/Davies26
+13,22,1,140,137,137,Afrasyab26,137,Bhan26,137,já fechado na literatura,137,Afrasyab26
+13,23,1,145,135,143,"Z(13,22) [densidade]",139,"Z(13,22)+2",140,NOVO: supera a literatura,145,Fig2/Davies26
+14,16,0,115,115,115,Fig2/Davies26,115,Bhan26,115,já fechado na literatura,115,Fig2/Davies26
+14,17,1,124,118,118,Collins16,118,Bhan26,118,já fechado na literatura,118,Collins16
+14,18,1,129,124,124,Collins16,124,Bhan26,124,já fechado na literatura,124,Collins16
+14,19,1,135,121,130,"Z(14,18) [densidade]",126,Saurabh26,128,NOVO: supera a literatura,135,Fig2/Davies26
+14,20,1,140,125,136,"Z(14,19) [densidade]",129,"Z(15,20)-floor(138/15)",131,NOVO: supera a literatura,140,Fig2/Davies26
+14,21,1,145,131,142,"Z(14,20) [densidade]",133,"Z(13,21)+2",136,NOVO: supera a literatura,145,Fig2/Davies26
+14,22,1,150,137,147,"Z(13,22) [densidade]",139,"Z(13,22)+2",142,NOVO: supera a literatura,150,Fig2/Davies26
+14,23,1,155,138,153,"Z(14,22) [densidade]",141,"Z(13,23)+2",146,NOVO: supera a literatura,155,Fig2/Davies26
+15,16,0,123,123,123,Fig2/Davies26,123,Bhan26,123,já fechado na literatura,123,Fig2/Davies26
+15,17,1,132,125,126,Collins16,126,Hou26,126,já fechado na literatura,126,Collins16
+15,18,1,138,132,132,Collins16,132,Bhan26,132,já fechado na literatura,132,Collins16
+15,19,1,143,132,139,"Z(15,18) [densidade]",134,"Z(15,18)+2",136,NOVO: supera a literatura,143,Fig2/Davies26
+15,20,1,149,138,145,"Z(14,20) [densidade]",138,Bhan26,139,NOVO: supera a literatura,149,Fig2/Davies26
+15,21,1,154,139,152,"Z(14,21) [densidade]",140,"Z(15,20)+2",144,NOVO: supera a literatura,154,Fig2/Davies26
+15,22,1,160,143,157,"Z(14,22) [densidade]",143,Bhan26,150,NOVO: supera a literatura,160,Fig2/Davies26
+15,23,1,165,149,163,"Z(14,23) [densidade]",149,Bhan26,156,NOVO: supera a literatura,165,Fig2/Davies26
+16,16,0,128,128,128,Fig2/Davies26,128,Bhan26,128,já fechado na literatura,128,Fig2/Davies26
+16,17,1,141,128,133,Collins16,132,Afrasyab26,132,igual à literatura,133,Collins16
+16,18,1,146,130,140,Collins16,136,Saurabh26,137,NOVO: supera a literatura,140,Collins16
+16,19,1,152,132,147,"Z(16,18) [densidade]",139,"Z(16,20)-floor(146/20)",142,NOVO: supera a literatura,152,Fig2/Davies26
+16,20,1,158,146,154,"Z(16,19) [densidade]",146,Bhan26,147,NOVO: supera a literatura,158,Fig2/Davies26
+16,21,1,164,147,161,"Z(16,20) [densidade]",148,"Z(16,20)+2",152,NOVO: supera a literatura,164,Fig2/Davies26
+16,22,1,169,149,167,"Z(15,22) [densidade]",152,"Z(16,23)-floor(158/23)",158,NOVO: supera a literatura,169,Fig2/Davies26
+16,23,1,175,158,173,"Z(15,23) [densidade]",158,Bhan26,163,NOVO: supera a literatura,175,Fig2/Davies26

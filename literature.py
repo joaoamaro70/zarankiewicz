@@ -1,14 +1,52 @@
 #!/usr/bin/env python3
-"""Consolida a literatura para Z(m,n,3,3) na faixa da Figura 2, aplica as regras triviais
-(adicionar/remover linha/coluna) ate ponto fixo e compara com nossos resultados.
-Gera literature.csv. Uso: literature.py [dir_resultados]"""
+"""Consolida a literatura para Z(m,n,3,3) na faixa 8 <= m <= 16, 16 <= n <= 23, aplica as
+regras elementares (adicionar/remover linha/coluna) ate ponto fixo, nas duas direcoes, e
+compara com nossos resultados. Gera literature.csv com as 72 celulas.
+Uso: literature.py [dir_resultados]"""
 import csv
 import os
 import sys
-from table import MS, NS, up, lo
 from verify import check
 
-# Limites superiores (min com a Figura 2, que ja e a Tabela 2 de Davies-Gill-Horsley 2026)
+MS = range(8, 17)
+NS = range(16, 24)
+
+# Bhan, Nobili, Raghuraman, Langer (arXiv 2605.01120v3), Figura 2, conferida contra a
+# pagina 6 do PDF. Linhas m = 8..16, colunas n = 16..23. Onde Davies-Gill-Horsley 2026
+# (Tabela 2) tem limite superior nessa faixa, ele coincide com UP_FIG2.
+UP_FIG2 = [
+    [70, 74, 77, 81, 84, 87, 90, 94],
+    [77, 81, 85, 89, 93, 96, 100, 104],
+    [85, 90, 94, 98, 102, 108, 111, 115],
+    [92, 96, 101, 108, 112, 116, 121, 125],
+    [99, 108, 113, 118, 122, 127, 132, 136],
+    [107, 116, 121, 125, 130, 135, 140, 145],
+    [115, 124, 129, 135, 140, 145, 150, 155],
+    [123, 132, 138, 143, 149, 154, 160, 165],
+    [128, 141, 146, 152, 158, 164, 169, 175],
+]
+LO_FIG2 = [
+    [70, 74, 77, 81, 84, 87, 90, 94],
+    [77, 81, 85, 89, 93, 96, 100, 103],
+    [85, 90, 94, 98, 99, 106, 110, 112],
+    [92, 96, 97, 102, 111, 116, 121, 118],
+    [99, 102, 108, 110, 113, 116, 132, 125],
+    [107, 106, 115, 114, 119, 127, 137, 135],
+    [115, 118, 124, 121, 125, 131, 137, 138],
+    [123, 125, 132, 132, 138, 139, 143, 149],
+    [128, 128, 130, 132, 146, 147, 149, 158],
+]
+
+
+def up(m, n):
+    return UP_FIG2[m - 8][n - 16]
+
+
+def lo(m, n):
+    return LO_FIG2[m - 8][n - 16]
+
+
+# Limites superiores de outras fontes (ficam os menores)
 UB_LIT = {
     # Collins, Riasanovsky, Wallace, Radziszowski (2016), Tabela 4; (12,17)=103 e exato
     (10, 18): (94, "Collins16"), (11, 18): (101, "Collins16"), (12, 17): (103, "Collins16"),
@@ -21,7 +59,7 @@ UB_LIT = {
     # Tan (2022, arXiv 2203.02283), Tabela 3, valores em negrito (exatos)
     (10, 20): (102, "Tan22"), (11, 18): (101, "Tan22"),
 }
-# Limites inferiores com matriz explicita
+# Limites inferiores de outras fontes, todos com matriz explicita (ficam os maiores)
 LB_LIT = {
     (10, 20): (102, "Tan22"), (11, 18): (101, "Tan22"),
     (12, 17): (103, "Collins16"),
@@ -114,14 +152,18 @@ def status(k):
     return "abaixo da literatura"
 
 
-opens = [k for k in cells if up(*k) > lo(*k)]
-with open("literature.csv", "w", newline="") as f:
+def is_open_in_bhan(k):
+    return up(*k) > lo(*k)
+
+
+opens = [k for k in cells if is_open_in_bhan(k)]
+with open("literature.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
-    w.writerow(["m", "n", "UP_fig2", "LO_artigo", "UB_lit", "fonte_UB", "LB_lit", "fonte_LB",
-                "nosso", "status", "UB_publicado", "fonte_UB_publicado"])
-    for k in opens:
-        w.writerow([*k, up(*k), lo(*k), ub[k][0], ub[k][1], lb[k][0], lb[k][1],
-                    ours.get(k, ""), status(k), ub_pub[k][0], ub_pub[k][1]])
+    w.writerow(["m", "n", "aberto_BNRL26", "UP_fig2", "LO_artigo", "UB_lit", "fonte_UB",
+                "LB_lit", "fonte_LB", "nosso", "status", "UB_publicado", "fonte_UB_publicado"])
+    for k in cells:
+        w.writerow([*k, int(is_open_in_bhan(k)), up(*k), lo(*k), ub[k][0], ub[k][1],
+                    lb[k][0], lb[k][1], ours.get(k, ""), status(k), ub_pub[k][0], ub_pub[k][1]])
 
 cnt = {}
 for k in opens:

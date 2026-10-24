@@ -37,17 +37,19 @@ def src_tex(s):
     return s
 
 
-rows = list(csv.DictReader(open("literature.csv", encoding="utf-8")))
-for r in rows:
-    for k in ("m", "n", "UP_fig2", "LO_artigo", "UB_lit", "LB_lit"):
+all_rows = list(csv.DictReader(open("literature.csv", encoding="utf-8")))
+for r in all_rows:
+    for k in ("m", "n", "UP_fig2", "LO_artigo", "UB_lit", "LB_lit", "UB_publicado"):
         r[k] = int(r[k])
+    r["open"] = r["aberto_BNRL26"] == "1"
     r["ours"] = int(r["nosso"]) if r["nosso"] else 0
     p = f"{RES}/Z_{r['m']}_{r['n']}.txt"
     ok, v = check(p) if os.path.exists(p) else (False, 0)
     assert ok and v == r["ours"], (p, ok, v, r["ours"])
-
-for r in rows:
-    r["UB_publicado"] = int(r["UB_publicado"])
+MS = sorted({r["m"] for r in all_rows})
+NS = sorted({r["n"] for r in all_rows})
+# a tabela e as contagens da nota tratam so das celulas deixadas em aberto por [BNRL26]
+rows = [r for r in all_rows if r["open"]]
 improved = [r for r in rows if r["ours"] > r["LB_lit"]]
 closed_new = [r for r in rows if r["status"] == "NOVO: fecha o caso"]
 ub_improved = [r for r in rows if r["UB_lit"] < r["UB_publicado"]]
@@ -73,15 +75,11 @@ with open(f"{GEN}/macros.tex", "w") as f:
     f.write(f"\\newcommand{{\\ClosedList}}{{{cl_txt}}}\n")
     f.write(f"\\newcommand{{\\MaxGain}}{{{max(gains) if gains else 0}}}\n")
     f.write(f"\\newcommand{{\\TotalGain}}{{{sum(gains)}}}\n")
-    byk = {(r["m"], r["n"]): r for r in rows}
-    f.write(f"\\newcommand{{\\OursSixteenEighteen}}{{{byk[(16, 18)]['ours']}}}\n")
-    f.write(f"\\newcommand{{\\UBSixteenEighteen}}{{{byk[(16, 18)]['UB_lit']}}}\n")
     ms, ns = [r["m"] for r in improved], [r["n"] for r in improved]
     f.write(f"\\newcommand{{\\Mmin}}{{{min(ms)}}}\\newcommand{{\\Mmax}}{{{max(ms)}}}\n")
     f.write(f"\\newcommand{{\\Nmin}}{{{min(ns)}}}\\newcommand{{\\Nmax}}{{{max(ns)}}}\n")
 
 # Figura: mapa de calor no estilo da Figura 2 de [BNRL26], com "antigo -> novo"
-from table import MS, NS, up as up_fig2, lo as lo_fig2  # noqa: E402
 
 YLORRD = [(255, 255, 204), (255, 237, 160), (254, 217, 118), (254, 178, 76),
           (253, 141, 60), (252, 78, 42), (227, 26, 28), (189, 0, 38), (128, 0, 38)]
@@ -105,7 +103,7 @@ def dark(c):
     return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2] < 140
 
 
-byk = {(r["m"], r["n"]): r for r in rows}
+byk = {(r["m"], r["n"]): r for r in all_rows}
 W, H = 1.6, 1.15
 with open(f"{GEN}/heatmap.tex", "w") as f:
     f.write("\\begin{tikzpicture}[font=\\scriptsize]\n")
@@ -114,13 +112,13 @@ with open(f"{GEN}/heatmap.tex", "w") as f:
         f.write(f"\\node[anchor=east,font=\\small] at (-0.1,{y + H / 2:.3f}) {{{m}}};\n")
         for j, n in enumerate(NS):
             x = j * W
-            r = byk.get((m, n))
+            r = byk[(m, n)]
             star = False
             ub_txt = None
-            if r is not None and r["UB_lit"] < r["UB_publicado"]:
+            if r["UB_lit"] < r["UB_publicado"]:
                 ub_txt = f"{r['UB_publicado']}$\\,\\to\\,$\\textbf{{{r['UB_lit']}}}"
-            if r is None:  # fechado em [BNRL26]
-                col, top, bot = BEIGE, None, str(up_fig2(m, n))
+            if not r["open"]:  # fechado em [BNRL26]
+                col, top, bot = BEIGE, None, str(r["UP_fig2"])
             elif r["status"] == "NOVO: fecha o caso":  # fechado na Secao 2
                 col, top, bot = BEIGE, ub_txt, f"\\textbf{{{r['UB_lit']}}}"
             elif max(r["ours"], r["LB_lit"]) >= r["UB_lit"]:  # fechado na literatura
@@ -174,7 +172,7 @@ PREPRINT = {"Afrasyab26", "Hou26", "Afrasyab26/Hou26"}
 
 def ub_depends_on_preprint(k, seen=()):
     r = byk.get(k)
-    if r is None or k in seen:
+    if r is None or not r["open"] or k in seen:
         return False  # celula fechada em [BNRL26]: base publicada
     src = r["fonte_UB"]
     if src in PREPRINT:
