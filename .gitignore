@@ -1,0 +1,30 @@
+# notas pessoais (rascunhos de e-mail, handoff, relatorios internos)
+pessoal/
+
+# rascunhos e artigos de terceiros
+scratch/
+paper_motivacao.pdf
+*.pdf
+!paper/main.pdf
+
+# binarios e caches
+zaran
+zaran2
+__pycache__/
+*.tmp
+
+# logs e execucoes intermediarias
+*.log
+bench/
+sat/runs/
+sat/prun/
+sat/test/
+sat/ptest/
+
+# LaTeX
+paper/*.aux
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.blg
+paper/*.out
+paper/arxiv.tar.gz

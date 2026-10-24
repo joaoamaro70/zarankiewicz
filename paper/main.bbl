@@ -1,0 +1,73 @@
+\begin{thebibliography}{10}
+
+\bibitem{Afr26}
+K.~Afrasyab.
+\newblock Exact {Z}arankiewicz values on two finite frontier slices, 2026.
+\newblock URL: \url{https://arxiv.org/abs/2608.08154}.
+
+\bibitem{BNRL26}
+J.~Bhan, N.~Nobili, S.~Raghuraman, and P.~Langer.
+\newblock New bounds for {Z}arankiewicz numbers via reinforced {LLM}
+  evolutionary search, 2026.
+\newblock Version 3.
+\newblock URL: \url{https://arxiv.org/abs/2605.01120v3}.
+
+\bibitem{CRWR16}
+A.~F. Collins, A.~W.~N. Riasanovsky, J.~C. Wallace, and S.~P. Radziszowski.
+\newblock Zarankiewicz numbers and bipartite {R}amsey numbers.
+\newblock {\em Journal of Algorithms and Computation}, 47:63--78, 2016.
+\newblock URL: \url{https://arxiv.org/abs/1604.01257}.
+
+\bibitem{DGH26}
+S.~Davies, P.~Gill, and D.~Horsley.
+\newblock Improved upper bounds on {Z}arankiewicz numbers.
+\newblock {\em Discrete Mathematics}, 349(5):114924, 2026.
+\newblock \href {https://doi.org/10.1016/j.disc.2025.114924}
+  {\path{doi:10.1016/j.disc.2025.114924}}.
+
+\bibitem{Guy69}
+R.~K. Guy.
+\newblock A many-facetted problem of {Z}arankiewicz.
+\newblock In {\em The Many Facets of Graph Theory}, volume 110 of {\em Lecture
+  Notes in Mathematics}, pages 129--148. Springer, 1969.
+\newblock \href {https://doi.org/10.1007/BFb0060112}
+  {\path{doi:10.1007/BFb0060112}}.
+
+\bibitem{Hou26}
+S.~Hou.
+\newblock Seven exact finite {Z}arankiewicz numbers from a single $13\times18$
+  core, 2026.
+\newblock URL: \url{https://arxiv.org/abs/2608.08549}.
+
+\bibitem{KST54}
+T.~K{\H{o}}v{\'a}ri, V.~T. S{\'o}s, and P.~Tur{\'a}n.
+\newblock On a problem of {K}. {Z}arankiewicz.
+\newblock {\em Colloquium Mathematicum}, 3:50--57, 1954.
+\newblock \href {https://doi.org/10.4064/cm-3-1-50-57}
+  {\path{doi:10.4064/cm-3-1-50-57}}.
+
+\bibitem{Rom75}
+S.~Roman.
+\newblock A problem of {Z}arankiewicz.
+\newblock {\em Journal of Combinatorial Theory, Series A}, 18(2):187--198,
+  1975.
+\newblock \href {https://doi.org/10.1016/0097-3165(75)90007-2}
+  {\path{doi:10.1016/0097-3165(75)90007-2}}.
+
+\bibitem{Sau26}
+A.~Saurabh.
+\newblock Five improved lower bounds for {Z}arankiewicz numbers $z(m,n;3,3)$,
+  2026.
+\newblock URL: \url{https://arxiv.org/abs/2608.26603}.
+
+\bibitem{Tan22}
+J.~Tan.
+\newblock An attack on {Z}arankiewicz's problem through {SAT} solving, 2022.
+\newblock URL: \url{https://arxiv.org/abs/2203.02283}.
+
+\bibitem{Zar51}
+K.~Zarankiewicz.
+\newblock Problem 101.
+\newblock {\em Colloquium Mathematicum}, 2:301, 1951.
+
+\end{thebibliography}

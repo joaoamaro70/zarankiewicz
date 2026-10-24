@@ -1,0 +1,293 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\input{gen/macros.tex}
+
+\title{\bfseries\boldmath New bounds and three exact values\\ for the Zarankiewicz numbers $z(m,n;3,3)$}
+\author{JO\~AO AMARO}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We improve the best known lower bounds for \NumImprovedWord{} Zarankiewicz
+numbers $z(m,n;3,3)$, with $\Mmin\le m\le \Mmax$ and $\Nmin\le n\le \Nmax$,
+by up to \MaxGain. The new matrices were found by a local search that
+treats all cells together and passes each improvement to the neighbouring
+cells. An elementary deletion argument applied to known values also
+improves \NumUBImprovedWord{} upper bounds and determines \ClosedList. We
+summarize the bounds from the recent literature in this range.
+\end{abstract}
+
+\section{Introduction}
+
+The Zarankiewicz number $z(m,n;s,t)$ is the maximum number of ones in an
+$m\times n$ $(0,1)$-matrix with no $s\times t$ all-ones submatrix
+\cite{Zar51,KST54}. Equivalently, it is the maximum number of edges in a
+subgraph of $K_{m,n}$ with no $K_{s,t}$ having its $s$ vertices in the part
+of size $m$; the matrix is the biadjacency matrix of the graph. We study
+$s=t=3$ and write $z(m,n)=z(m,n;3,3)=z(n,m)$.
+
+Small values were tabulated by Guy~\cite{Guy69}, Collins et
+al.~\cite{CRWR16} and Tan~\cite{Tan22}. General upper bounds include those
+of Roman~\cite{Rom75} and of Davies, Gill and Horsley~\cite{DGH26}.
+Recently, Bhan et al.~\cite{BNRL26} used an LLM-guided evolutionary search
+to find lower bounds for $8\le m\le 16$, $16\le n\le 23$. They determined
+three values exactly and left \NumOpen{} cells open. Some of these were
+later settled or improved by Afrasyab~\cite{Afr26}, Hou~\cite{Hou26} and
+Saurabh~\cite{Sau26}.
+
+This note builds on these works and makes three contributions.
+\begin{itemize}
+  \item \emph{Lower bounds} (Section~\ref{sec:lower}). We improve the lower
+    bound in \NumImprovedWord{} cells, by up to \MaxGain, with explicit
+    matrices found by a local search.
+  \item \emph{Upper bounds} (Section~\ref{sec:upper}). Applying the density
+    lemma of Collins et al.~\cite{CRWR16} to exact values from
+    \cite{Tan22,CRWR16,Afr26} improves \NumUBImproved{} upper bounds and
+    settles \ClosedList.
+  \item \emph{Summary} (Section~\ref{sec:known}). Table~\ref{tab:summary}
+    and Figure~\ref{fig:heatmap} give the bounds for all \NumOpen{} cells
+    with their sources. Some cells listed as open in~\cite{BNRL26} were
+    already settled in~\cite{Tan22,CRWR16}.
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\input{gen/heatmap.tex}
+\caption{Bounds for $z(m,n;3,3)$, in the style of
+\cite[Figure~2]{BNRL26}. Beige cells show values that are known exactly,
+including the three settled in Section~\ref{sec:upper}. In the other
+cells, the top number is the best known upper bound, the bottom number is
+the best lower bound, and the colour shows the gap between them.
+``$a\to\mathbf{b}$'' marks our improvement from the previous best bound $a$
+to $b$, for the upper bound (top) or the lower bound (bottom).}
+\label{fig:heatmap}
+\end{figure}
+
+\section{Known bounds}\label{sec:known}
+
+We collected the bounds for this range from the following sources.
+\begin{itemize}
+  \item Bhan et al.~\cite{BNRL26}: lower bounds for all cells, together with
+    the upper bounds known at the time. Where Davies, Gill and
+    Horsley~\cite[Table~2]{DGH26} give an upper bound in this range, it is
+    the one listed there.
+  \item Collins et al.~\cite[Table~4]{CRWR16}: upper bounds for $n\le18$,
+    several from exhaustive computation, such as $z(13,17)\le110$, and the
+    exact value $z(12,17)=103$.
+  \item Tan~\cite[Table~3]{Tan22}: exact values computed with SAT solvers,
+    among them $z(9,21)=96$, $z(10,20)=102$ and $z(11,18)=101$.
+  \item Afrasyab~\cite{Afr26}: $z(12,n)=6n$ for $18\le n\le22$ and
+    $z(13,22)=137$, with computer-assisted proofs.
+  \item Hou~\cite{Hou26}: explicit matrices settling the cells in
+    $\{13,14,15\}\times\{17,18\}$.
+  \item Saurabh~\cite{Sau26}: five improved lower bounds.
+\end{itemize}
+The 2026 preprints \cite{Afr26,Hou26,Sau26} are not yet peer reviewed.
+Their lower bounds are explicit matrices that can be checked directly.
+Their upper bounds rely on computer-assisted proofs that, as Afrasyab
+notes, still await independent reproduction.
+
+\paragraph{Elementary bounds.} Two simple facts relate neighbouring cells.
+Appending a column with two ones creates no $3\times3$ all-ones submatrix,
+and deleting a column with the fewest ones loses at most the average number
+of ones per column (the density lemma of \cite[Lemma~3]{CRWR16}). This gives
+the lower bounds
+\begin{equation}\label{eq:mono}
+  z(m,n+1)\ge z(m,n)+2,
+  \qquad
+  z(m,n)\ge z(m,n+1)-\left\lfloor \frac{z(m,n+1)}{n+1}\right\rfloor,
+\end{equation}
+and, read in the other direction, the upper bounds
+\begin{equation}\label{eq:monoup}
+  z(m,n)\le z(m,n+1)-2,
+  \qquad
+  z(m,n+1)\le\max\Bigl\{W : W-\Bigl\lfloor\frac{W}{n+1}\Bigr\rfloor\le z(m,n)\Bigr\},
+\end{equation}
+together with the same inequalities for rows.
+
+\paragraph{Previous best bounds.} For each cell, the \emph{previous lower
+bound} is the largest published lower bound after applying
+\eqref{eq:mono} over the whole range until nothing changes, and the
+\emph{previous upper bound} is the smallest published upper bound. This
+already improves several lower bounds of \cite{BNRL26}. For example,
+$z(16,20)\ge146$ \cite{BNRL26} gives
+$z(16,19)\ge146-\lfloor146/20\rfloor=139$, compared with the published
+$132$. Table~\ref{tab:summary} lists all previous bounds with their
+sources, next to our results.
+
+{\footnotesize
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{lrlrrlrrl}
+\caption{Bounds for the \NumOpen{} cells left open in~\cite{BNRL26}: the
+previous best bounds with their sources, and
+the new bounds from this note (in bold). ``via $(a,b)$'' means that the
+bound follows from the bound for $(a,b)$ by \eqref{eq:mono} or
+\eqref{eq:monoup}. A dagger marks upper bounds that depend on a
+computer-assisted proof in a preprint~\cite{Afr26,Hou26}.}
+\label{tab:summary}\\
+\toprule
+ & \multicolumn{3}{c}{upper bound} & \multicolumn{4}{c}{lower bound} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-8}
+$(m,n)$ & previous & source & new & previous & source & new & gain & status \\
+\midrule
+\endfirsthead
+\toprule
+ & \multicolumn{3}{c}{upper bound} & \multicolumn{4}{c}{lower bound} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-8}
+$(m,n)$ & previous & source & new & previous & source & new & gain & status \\
+\midrule
+\endhead
+\input{gen/summary.tex}
+\end{longtable}
+}
+
+\section{Lower bounds}\label{sec:lower}
+
+A matrix is \emph{valid} if it has no $3\times3$ all-ones submatrix, that
+is, if every three rows share at most two columns with ones. We write $|X|$
+for the number of ones in $X$. The search (Algorithm~\ref{alg:search})
+works on all cells of the table at once and keeps every matrix valid at all
+times.
+
+Two kinds of random move are used. In \emph{rip-up and repair}, we remove a
+few random ones from $X$ and call \textsc{Greedy}. In \emph{simulated
+annealing}, we put a one in a random cell and then remove one entry from
+each $3\times3$ all-ones submatrix this creates; this move is accepted by
+the Metropolis rule instead of the test in line~18. In part of the time
+slices, the same search runs over matrices made of circulant blocks, and
+the results are completed with \textsc{Greedy} and added to the pool.
+
+None of these ingredients is new. Rip-up and repair is the strategy found
+by the evolutionary search of Bhan et al.~\cite{BNRL26}, Saurabh~\cite{Sau26}
+used a similar kicked-greedy search, and Hou~\cite{Hou26} derived several
+values from a single core matrix by adding rows and deleting columns. Our
+only change is to run all cells together and pass every improvement to the
+neighbouring cells automatically. About three quarters of all improvements
+first appeared this way, through \textsc{Improve} on a neighbouring cell.
+
+\begin{algorithm}[t]
+\caption{Joint local search over all cells}\label{alg:search}
+\begin{algorithmic}[1]
+\Procedure{Greedy}{$X$}
+  \For{each empty cell of $X$, in random order}
+    \State put a one there if $X$ stays valid
+  \EndFor
+  \State \Return $X$
+\EndProcedure
+\Statex
+\Procedure{Improve}{$c$, $X$} \Comment{new best matrix $X$ for cell $c$}
+  \State $\mathit{best}[c]\gets X$
+  \For{each neighbour $c'$ of $c$} \Comment{$(m\pm1,n)$ and $(m,n\pm1)$}
+    \State $Y\gets{}$\Call{Greedy}{$X$ with a row or column added or deleted}
+    \If{$|Y|>|\mathit{best}[c']|$}
+      \State \Call{Improve}{$c'$, $Y$}
+    \Else
+      \State add $Y$ to $\mathit{pool}[c']$
+    \EndIf
+  \EndFor
+\EndProcedure
+\Statex
+\While{time remains}
+  \State pick a cell $c$ below its upper bound, with probability
+    proportional to $1+\mathrm{UB}(c)-|\mathit{best}[c]|$
+  \State $X\gets{}$\Call{Greedy}{$\mathit{best}[c]$, a matrix from
+    $\mathit{pool}[c]$, or the empty matrix}
+  \For{a time slice of 20 seconds}
+    \State $Y\gets{}$a random move applied to $X$
+    \If{$|Y|\ge|X|$, or rarely if $|Y|<|X|$}
+      \State $X\gets Y$
+    \EndIf
+    \If{$|X|>|\mathit{best}[c]|$}
+      \State \Call{Improve}{$c$, $X$}
+    \EndIf
+  \EndFor
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Results.} The search improved the lower bound in
+\NumImprovedWord{} cells (column ``new'' of the lower bounds in
+Table~\ref{tab:summary}), all with $\Mmin\le m\le\Mmax$ and
+$\Nmin\le n\le\Nmax$. The matrices are drawn in Appendix~\ref{app:matrices}
+and given as text files in the ancillary files. All runs together took
+about 7~hours on a single desktop computer. Every new value was found in
+the first few minutes, and the remaining hours brought no further
+improvement.
+
+\paragraph{Verification.} A separate Python script, sharing no code with
+the search, checks every matrix. It counts the ones and tests all triples
+of rows and, separately, all triples of columns. It is included in the
+ancillary files.
+
+\section{Upper bounds}\label{sec:upper}
+
+We applied \eqref{eq:monoup} to the previous upper bounds and exact values,
+over the whole range and until nothing changed. This improves
+\NumUBImproved{} upper bounds (column ``new'' of the upper bounds in
+Table~\ref{tab:summary}) and settles three cells.
+
+For example, an $11\times19$ matrix with $107$ ones has a column with at
+most $\lfloor107/19\rfloor=5$ ones. Deleting it leaves an $11\times18$
+matrix with at least $102$ ones, which contradicts $z(11,18)=101$
+\cite{Tan22}. Hence $z(11,19)\le106$, and with the lower bound $106$ from
+\eqref{eq:mono} we get $z(11,19)=106$. In the same way, deleting a row
+shows that $z(9,21)=96$ \cite{Tan22} gives $z(10,21)\le106$, and deleting a
+column shows that $z(11,19)\le106$ gives $z(11,20)\le111$; both match the
+lower bounds of \cite{BNRL26}. The other improvements follow by short
+chains of the same argument. For example, $z(13,18)=116$ \cite{CRWR16,Hou26}
+gives $z(13,19)\le122$, and $z(14,18)=124$ gives $z(14,19)\le130$. We have
+not found these deductions in the literature.
+
+Each improved upper bound is only as reliable as the value its chain starts
+from. Seven of them, marked with a dagger in Table~\ref{tab:summary}, start
+from $z(13,22)=137$, whose upper bound is the computer-assisted proof
+of~\cite{Afr26}. The others start from values of \cite{Tan22,CRWR16} or
+from the bounds compiled in \cite{BNRL26}.
+
+\section{Remarks}
+
+The largest remaining gap is $10$, for $z(16,23)\in[163,173]$. Several
+cells are within one of being settled, such as $z(9,23)\in[103,104]$,
+$z(10,22)\in[110,111]$ and $z(16,17)\in[132,133]$, and others within two,
+such as $z(13,19)\in[120,122]$ and $z(14,19)\in[128,130]$. For these,
+exact methods seem more promising than local search. A plain SAT encoding
+solved by Kissat reproduces the values of \cite{Tan22} up to
+$z(10,11)=64$, but in 1.5 hours it did not find a $16\times17$ matrix with
+132 ones, which we know exists. Solving small parts of a good matrix
+exactly, while keeping the rest fixed, may work better.
+
+\section*{Acknowledgements}
+The search code and a first draft of this note were written with the help
+of an AI assistant (Claude, Anthropic). The author checked all results and
+the text, and every matrix was confirmed by the independent verifier
+described in Section~\ref{sec:lower}.
+
+\bibliographystyle{plainurl}
+\bibliography{refs}
+
+\appendix
+
+\section{The matrices}\label{app:matrices}
+
+Black cells are ones and white cells are zeros. The same matrices are given
+as text files in the ancillary files.
+
+\medskip
+\input{gen/matrices.tex}
+
+\end{document}
