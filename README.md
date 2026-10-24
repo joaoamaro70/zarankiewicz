@@ -55,7 +55,7 @@ It tests every triple of rows and, independently, every triple of columns.
 | `verify.py` | independent verifier |
 | `search/` | the local search (C + OpenMP) and a script to build and run it |
 | `literature.py`, `table.py` | bounds from the literature, closed under the elementary rules; writes `literature.csv` |
-| `sat/` | SAT encodings (Kissat), their self-tests, and the per-profile check of z(13,22) |
+| `sat/` | SAT encodings (Kissat) and their self-tests; also an independent per-profile check of z(13,22) ≤ 137, still in progress |
 | `paper/` | the LaTeX note; `paper/build.sh` regenerates its tables from `results/` |
 | `Dockerfile` | Ubuntu 24.04 with gcc, Python, TeX Live and Kissat |
 
