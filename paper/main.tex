@@ -14,7 +14,7 @@
 
 \input{gen/macros.tex}
 
-\title{\bfseries\boldmath Improved bounds for the Zarankiewicz numbers $z(m,n;3,3)$}
+\title{\bfseries\boldmath Improved bounds and two exact values\\ for the Zarankiewicz numbers $z(m,n;3,3)$}
 \author{JO\~AO AMARO}
 \date{\today}
 
@@ -26,9 +26,11 @@ We improve the best known lower bounds for \NumImprovedWord{} Zarankiewicz
 numbers $z(m,n;3,3)$, with $\Mmin\le m\le \Mmax$ and $\Nmin\le n\le \Nmax$,
 by up to \MaxGain. The new matrices were found by a local search that
 treats all cells together and passes each improvement to the neighbouring
-cells. An elementary deletion argument applied to known exact values also
-improves \NumUBImprovedWord{} upper bounds. We summarize the bounds from
-the recent literature in this range.
+cells. Combining an elementary deletion argument with two computer-assisted
+methods, the elimination of column-degree profiles by exactly certified
+linear programming and an exhaustive orderly generation, we improve
+\NumUBImprovedWord{} upper bounds and determine \ClosedList. We summarize
+the bounds from the recent literature in this range.
 \end{abstract}
 
 \section{Introduction}
@@ -55,11 +57,12 @@ This note builds on these works and makes three contributions.
   \item \emph{Lower bounds} (Section~\ref{sec:lower}). We improve the lower
     bound in \NumImprovedWord{} cells, by up to \MaxGain, with explicit
     matrices found by a local search.
-  \item \emph{Upper bounds} (Section~\ref{sec:upper}). Applying the density
-    lemma of Collins et al.~\cite{CRWR16} to exact values from
-    \cite{Tan22,CRWR16,Afr26} improves \NumUBImproved{} upper bounds. The
-    same argument had already been used in~\cite{Fie26} to settle three
-    cells.
+  \item \emph{Upper bounds} (Section~\ref{sec:upper}). The density lemma of
+    Collins et al.~\cite{CRWR16}, applied to known exact values, together
+    with profile elimination by exact linear programming (extending
+    \cite{Afr26}) and an orderly generation, improves \NumUBImproved{}
+    upper bounds and determines \ClosedList. The deletion argument had
+    already been used in~\cite{Fie26} to settle three other cells.
   \item \emph{Summary} (Section~\ref{sec:known}). Table~\ref{tab:summary}
     and Figure~\ref{fig:heatmap} give the bounds for all \NumOpen{} cells
     with their sources. Some cells listed as open in~\cite{BNRL26} were
@@ -241,6 +244,16 @@ about 7~hours on a single desktop computer. Every new value was found in
 the first few minutes, and the remaining hours brought no further
 improvement.
 
+\paragraph{Other attempts.} Three further searches found no matrix better
+than those in Table~\ref{tab:summary}: SAT on matrices invariant under a
+cyclic group acting on rows and columns (about 5200 instances), large
+neighbourhood search in which a window of rows or columns is solved exactly
+by SAT while the rest of the matrix is fixed (about 75\,000 windows proved
+not to admit an extra one), and a tabu search allowing conflicts (about 42
+CPU-hours). In the tabu search, random starts consistently stop exactly at
+our values. This suggests that these lower bounds are hard to improve with
+local methods, and possibly optimal in some cells.
+
 \paragraph{Verification.} A separate Python script, sharing no code with
 the search, checks every matrix. It counts the ones and tests all triples
 of rows and, separately, all triples of columns. It is included in the
@@ -248,34 +261,101 @@ ancillary files.
 
 \section{Upper bounds}\label{sec:upper}
 
-We applied \eqref{eq:monoup} to the previous upper bounds and exact values,
-over the whole range and until nothing changed. This improves
-\NumUBImproved{} upper bounds (column ``new'' of the upper bounds in
-Table~\ref{tab:summary}).
+We obtained new upper bounds in three ways: an elementary deletion
+argument, the elimination of column-degree profiles by exact linear
+programming, and an exhaustive orderly generation. The results of the last
+two were then propagated with the first. Together they improve
+\NumUBImproved{} upper bounds and settle \ClosedList{} (column ``new'' of
+the upper bounds in Table~\ref{tab:summary}).
 
-The argument is a single deletion step, repeated. For example, a
+\subsection{Deletion}
+
+We applied \eqref{eq:monoup} to the previous upper bounds and exact values,
+over the whole range and until nothing changed. The argument is a single
+deletion step, repeated. For example, a
 $13\times19$ matrix with $123$ ones has a column with at most
 $\lfloor123/19\rfloor=6$ ones. Deleting it leaves a $13\times18$ matrix with
 at least $117$ ones, which contradicts $z(13,18)=116$ \cite{CRWR16,Hou26}.
 Hence $z(13,19)\le122$. In the same way, $z(14,18)=124$ \cite{CRWR16}
-gives $z(14,19)\le130$, and that bound in turn gives $z(14,20)\le136$.
+gives $z(14,19)\le130$.
 Applied to the exact values of Tan~\cite{Tan22}, the same argument settles
 $z(10,21)=106$, $z(11,19)=106$ and $z(11,20)=111$; these three values had
-already been obtained in this way in~\cite{Fie26}. To our knowledge, the
-other improved upper bounds have not appeared before.
+already been obtained in this way in~\cite{Fie26}.
 
-Each improved upper bound is only as reliable as the value its chain starts
-from. Seven of them, marked with a dagger in Table~\ref{tab:summary}, start
-from $z(13,22)=137$, whose upper bound is the computer-assisted proof
-of~\cite{Afr26}. The others start from values of \cite{Tan22,CRWR16} or
-from the bounds compiled in \cite{BNRL26}.
+\subsection{Profile elimination by exact linear programming}
+
+To show $z(m,n)\le k-1$ it suffices to show that no valid matrix has
+exactly $k$ ones. We enumerate the column-degree profiles
+$(d_1,\dots,d_n)$ with $\sum_j d_j=k$ and
+$\sum_j\binom{d_j}{3}\le2\binom{m}{3}$, and eliminate each profile with a
+linear system that every valid matrix with that profile must satisfy. As in
+the ``block polytope'' of Afrasyab~\cite[Section~3]{Afr26}, the variables
+count columns by their intersection pattern with a few fixed columns, and
+each constraint is a sum of the conditions ``each triple of rows lies in at
+most two columns''; the pair deficits of~\cite{Fie26} are sums of the same
+conditions. We extend this by fixing up to three columns chosen to be
+extremal (for example, a pair of columns of the same degree with the largest
+intersection), splitting into the possible cases, and using branch and
+bound on the integer variables when the linear relaxation is feasible.
+Each eliminated case comes with an integer Farkas vector found by a
+floating-point solver and then checked by a separate program in exact
+arithmetic, which rebuilds every system from the profile and the case and
+re-enumerates the profiles; the solver is never trusted.
+
+As validation, the method reproduces $z(10,22)\le110$ \cite{Fie26} (all 4
+profiles with 111 ones are eliminated) and eliminates exactly the same 77
+of the 83 profiles as \cite{Afr26} for $z(13,22)$ with 138 ones. In the
+open cells it proves $z(13,23)\le142$, $z(14,23)\le152$, $z(15,21)\le151$,
+$z(15,22)\le156$, $z(15,23)\le161$, $z(16,21)\le160$, $z(16,22)\le165$ and
+$z(16,23)\le171$. These proofs use no values from other sources. Some of
+these bounds improve further when combined with the orderly generation
+(Table~\ref{tab:summary}). In the other open cells a few nearly regular
+profiles survive.
+
+\subsection{Orderly generation}
+
+Every matrix with at least $T$ ones can be built row by row, adding rows in
+order of non-increasing degree, so that each prefix is the matrix without
+its lightest rows. We enumerate these prefixes up to row and column
+permutations, using canonical forms computed with nauty (canonical
+augmentation, in the spirit of the exhaustive computations of Collins et
+al.~\cite{CRWR16}), and prune with $\sum_j\binom{d_j}{3}\le2\binom{m}{3}$
+and with upper bounds for $z(j,n)$, $j<m$, on the prefixes. If the
+enumeration ends empty, $z(m,n)\le T-1$. As validation, on eight small
+cases the number of labelled matrices implied by the enumerated classes and
+their automorphism groups matches a brute-force count exactly, which checks
+both completeness and the absence of duplicates.
+
+The enumeration proves $z(13,19)\le121$ (with $T=122$, about 3 CPU-hours)
+and $z(13,20)\le125$ (with $T=128,127,126$, about 3 CPU-hours in total).
+Since the lower bound $125$ follows from \eqref{eq:mono}, this gives
+$z(13,20)=125$, and the deletion step then gives $z(13,21)\le131$, so
+$z(13,21)=131$ as well. These proofs use, for pruning, the values
+$z(j,n)$ for $j\le9$ (recomputed and equal to those of~\cite{Tan22}),
+$z(10,n)$ and $z(11,n)$ from~\cite{Tan22} and the deletion step, and
+$z(12,19)\le114$ and $z(12,20)\le120$ from~\cite{Afr26}.
+
+\subsection{Reliability}
+
+Each upper bound is only as reliable as the values its proof uses. The
+bounds marked with a dagger in Table~\ref{tab:summary} depend on a
+computer-assisted proof that is not yet peer reviewed: those that come from
+the orderly generation (through $z(12,19)$ and $z(12,20)$ of~\cite{Afr26})
+or from $z(13,22)=137$~\cite{Afr26}. The linear-programming bounds and the
+deletion steps from \cite{Tan22,CRWR16} have no such dependence. The
+certificates and the enumeration logs are in the repository.
 
 \section{Remarks}
 
-The largest remaining gap is $10$, for $z(16,23)\in[163,173]$. The
-smallest are $z(16,17)\in[132,133]$, $z(13,19)\in[120,122]$ and
-$z(14,19)\in[128,130]$. For these, exact methods seem more promising than
-local search. A plain SAT encoding
+Nineteen cells remain open. The largest gap is $8$, for
+$z(16,23)\in[163,171]$; the smallest are $z(13,19)\in[120,121]$ and
+$z(16,17)\in[132,133]$, followed by $z(13,23)\in[140,142]$ and
+$z(14,19)\in[128,130]$. The orderly generation for $z(13,19)$ with $T=121$,
+which would settle that cell, had finished 93 of its 240 parts (all empty)
+when we stopped it, and in the other cells the profiles that survive the
+linear programming are few and nearly regular; continuing these
+computations seems the most direct way to settle more cells. A plain SAT
+encoding
 solved by Kissat reproduces the values of \cite{Tan22} up to
 $z(10,11)=64$, but in 1.5 hours it did not find a $16\times17$ matrix with
 132 ones, which we know exists. Splitting by column-degree profiles is much

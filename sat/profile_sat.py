@@ -41,7 +41,11 @@ def profiles(m, n, total):
     return out
 
 
-def encode(m, n, degs, path):
+def encode(m, n, degs, path, pair=False):
+    """pair=True acrescenta a restricao redundante de capacidade por par de linhas:
+    para cada par {r1,r2}, sum_{colunas j com r1,r2} (d_j - 2) <= 2(m-2), pois cada
+    coluna j com o par forma d_j-2 triplas com ele e cada tripla cabe em no maximo
+    2 colunas. E consequencia da ausencia de K_{3,3}; so ajuda a propagacao."""
     degs = sorted(degs, reverse=True)
     assert len(degs) == n
     x = lambda r, c: 1 + r * n + c  # noqa: E731
@@ -55,6 +59,18 @@ def encode(m, n, degs, path):
         F.at_most([-v for v in col], m - degs[c])
     for r in range(m - 1):
         F.lex_geq([x(r, c) for c in range(n)], [x(r + 1, c) for c in range(n)])
+    if pair:
+        cap = 2 * (m - 2)
+        for r1, r2 in combinations(range(m), 2):
+            lits = []
+            for c in range(n):
+                w = degs[c] - 2
+                if w <= 0:
+                    continue
+                a = F.new()  # a -> (x(r1,c) e x(r2,c)) nao e preciso; basta (ambos) -> a
+                F.add([-x(r1, c), -x(r2, c), a])
+                lits += [a] * w  # peso w = literal repetido w vezes no contador
+            F.at_most(lits, cap)
     F.write(path)
     return F.nv, len(F.clauses)
 
@@ -65,5 +81,6 @@ if __name__ == "__main__":
         for p in profiles(int(a[2]), int(a[3]), int(a[4])):
             print(" ".join(map(str, p)))
     elif a[1] == "encode":
-        nv, nc = encode(int(a[2]), int(a[3]), list(map(int, a[4].split())), a[5])
+        nv, nc = encode(int(a[2]), int(a[3]), list(map(int, a[4].split())), a[5],
+                        pair="--pair" in a)
         print(f"{a[5]}: {nv} variaveis, {nc} clausulas")

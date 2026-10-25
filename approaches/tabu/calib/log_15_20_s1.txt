@@ -1,0 +1,14 @@
+ACHOU m=15 n=20 k=127 t=0.00s it=18
+ACHOU m=15 n=20 k=128 t=0.02s it=19
+ACHOU m=15 n=20 k=129 t=0.04s it=20
+ACHOU m=15 n=20 k=130 t=0.06s it=21
+ACHOU m=15 n=20 k=131 t=0.08s it=22
+ACHOU m=15 n=20 k=132 t=0.10s it=30
+ACHOU m=15 n=20 k=133 t=0.12s it=31
+ACHOU m=15 n=20 k=134 t=0.14s it=64
+ACHOU m=15 n=20 k=135 t=0.16s it=65
+ACHOU m=15 n=20 k=136 t=0.19s it=101
+ACHOU m=15 n=20 k=137 t=0.21s it=184
+ACHOU m=15 n=20 k=138 t=0.23s it=233
+ACHOU m=15 n=20 k=139 t=0.29s it=626
+FALHOU m=15 n=20 k=140 melhor_custo=1 it=1448064 t=180s

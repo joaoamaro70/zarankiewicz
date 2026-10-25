@@ -1,0 +1,4 @@
+21 celulas, 1115 instancias
+SAT {"m": 13, "n": 20, "k": 125, "rows": "5.5", "cols": "5.5.5.5", "orbits": 52, "clauses": 133280, "status": "SAT", "build_s": 0.3, "solve_s": 0.7, "sat_ones": 125, "greedy_ones": 125, "timeout": 30, "wall_s": 1.1, "file": "tmp/Z_13_20__5.5__5.5.5.5__125.txt"}
+SAT {"m": 13, "n": 21, "k": 131, "rows": "5.5", "cols": "5.5.5.5", "orbits": 57, "clauses": 151212, "status": "SAT", "build_s": 0.3, "solve_s": 3.4, "sat_ones": 131, "greedy_ones": 131, "timeout": 30, "wall_s": 3.8, "file": "tmp/Z_13_21__5.5__5.5.5.5__131.txt"}
+SAT {"m": 13, "n": 23, "k": 140, "rows": "5.5", "cols": "5.5.5.5", "orbits": 67, "clauses": 193404, "status": "SAT", "build_s": 0.4, "solve_s": 4.5, "sat_ones": 140, "greedy_ones": 140, "timeout": 30, "wall_s": 5.1, "file": "tmp/Z_13_23__5.5__5.5.5.5__140.txt"}

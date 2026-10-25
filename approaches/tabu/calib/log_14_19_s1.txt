@@ -1,0 +1,14 @@
+ACHOU m=14 n=19 k=116 t=0.00s it=14
+ACHOU m=14 n=19 k=117 t=0.02s it=15
+ACHOU m=14 n=19 k=118 t=0.04s it=16
+ACHOU m=14 n=19 k=119 t=0.06s it=17
+ACHOU m=14 n=19 k=120 t=0.08s it=17
+ACHOU m=14 n=19 k=121 t=0.10s it=18
+ACHOU m=14 n=19 k=122 t=0.13s it=58
+ACHOU m=14 n=19 k=123 t=0.15s it=61
+ACHOU m=14 n=19 k=124 t=0.17s it=65
+ACHOU m=14 n=19 k=125 t=0.19s it=149
+ACHOU m=14 n=19 k=126 t=0.21s it=154
+ACHOU m=14 n=19 k=127 t=0.22s it=155
+ACHOU m=14 n=19 k=128 t=14.80s it=158726
+FALHOU m=14 n=19 k=129 melhor_custo=5 it=1899968 t=180s

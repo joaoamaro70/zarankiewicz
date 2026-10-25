@@ -1,0 +1,14 @@
+ACHOU m=16 n=17 k=120 t=0.00s it=20
+ACHOU m=16 n=17 k=121 t=0.02s it=22
+ACHOU m=16 n=17 k=122 t=0.04s it=27
+ACHOU m=16 n=17 k=123 t=0.06s it=32
+ACHOU m=16 n=17 k=124 t=0.08s it=53
+ACHOU m=16 n=17 k=125 t=0.10s it=54
+ACHOU m=16 n=17 k=126 t=0.12s it=58
+ACHOU m=16 n=17 k=127 t=0.14s it=88
+ACHOU m=16 n=17 k=128 t=0.16s it=88
+ACHOU m=16 n=17 k=129 t=0.18s it=89
+ACHOU m=16 n=17 k=130 t=0.20s it=95
+ACHOU m=16 n=17 k=131 t=0.22s it=108
+ACHOU m=16 n=17 k=132 t=0.29s it=645
+FALHOU m=16 n=17 k=133 melhor_custo=2 it=1727168 t=180s

@@ -1,0 +1,14 @@
+ACHOU m=13 n=23 k=128 t=0.00s it=18
+ACHOU m=13 n=23 k=129 t=0.02s it=19
+ACHOU m=13 n=23 k=130 t=0.05s it=21
+ACHOU m=13 n=23 k=131 t=0.07s it=24
+ACHOU m=13 n=23 k=132 t=0.09s it=24
+ACHOU m=13 n=23 k=133 t=0.12s it=27
+ACHOU m=13 n=23 k=134 t=0.15s it=45
+ACHOU m=13 n=23 k=135 t=0.17s it=50
+ACHOU m=13 n=23 k=136 t=0.20s it=141
+ACHOU m=13 n=23 k=137 t=0.21s it=144
+ACHOU m=13 n=23 k=138 t=0.22s it=146
+ACHOU m=13 n=23 k=139 t=0.24s it=147
+ACHOU m=13 n=23 k=140 t=0.25s it=150
+FALHOU m=13 n=23 k=141 melhor_custo=1 it=1625472 t=180s

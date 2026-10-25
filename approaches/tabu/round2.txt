@@ -1,0 +1,84 @@
+(13,19) nosso=120 randd: k=120 | FALHOU m=13 n=19 k=121 melhor_custo=5 it=8382016 t=1200s
+(13,19) nosso=120 bestd:  | FALHOU m=13 n=19 k=121 melhor_custo=5 it=8280320 t=1200s
+(13,19) nosso=120 randw: k=120 | FALHOU m=13 n=19 k=121 melhor_custo=5 it=8326912 t=1200s
+(13,19) nosso=120 bestw:  | FALHOU m=13 n=19 k=121 melhor_custo=5 it=8380096 t=1200s
+(13,20) nosso=125 randw: k=125 | FALHOU m=13 n=20 k=126 melhor_custo=3 it=8152704 t=1200s
+(13,20) nosso=125 randd: k=125 | FALHOU m=13 n=20 k=126 melhor_custo=3 it=7994688 t=1200s
+(13,20) nosso=125 bestd:  | FALHOU m=13 n=20 k=126 melhor_custo=3 it=7884480 t=1200s
+(13,20) nosso=125 bestw:  | FALHOU m=13 n=20 k=126 melhor_custo=3 it=8970752 t=1200s
+(13,21) nosso=131 randd: k=131 | FALHOU m=13 n=21 k=132 melhor_custo=3 it=8176000 t=1200s
+(13,21) nosso=131 bestd:  | FALHOU m=13 n=21 k=132 melhor_custo=3 it=8218944 t=1200s
+(13,21) nosso=131 randw: k=131 | FALHOU m=13 n=21 k=132 melhor_custo=3 it=8492288 t=1200s
+(13,23) nosso=140 randd: k=140 | FALHOU m=13 n=23 k=141 melhor_custo=1 it=7230272 t=1200s
+(13,21) nosso=131 bestw:  | FALHOU m=13 n=21 k=132 melhor_custo=3 it=8356416 t=1200s
+(13,23) nosso=140 bestd:  | FALHOU m=13 n=23 k=141 melhor_custo=1 it=7206272 t=1200s
+(13,23) nosso=140 randw: k=140 | FALHOU m=13 n=23 k=141 melhor_custo=1 it=6920448 t=1200s
+(13,23) nosso=140 bestw:  | FALHOU m=13 n=23 k=141 melhor_custo=1 it=6795456 t=1200s
+(14,19) nosso=128 randd: k=128 | FALHOU m=14 n=19 k=129 melhor_custo=5 it=7335296 t=1200s
+(14,19) nosso=128 randw: k=128 | FALHOU m=14 n=19 k=129 melhor_custo=5 it=7286272 t=1200s
+(14,19) nosso=128 bestw:  | FALHOU m=14 n=19 k=129 melhor_custo=5 it=7224448 t=1200s
+(14,19) nosso=128 bestd:  | FALHOU m=14 n=19 k=129 melhor_custo=5 it=7251392 t=1200s
+(14,20) nosso=131 randd: k=131 | FALHOU m=14 n=20 k=132 melhor_custo=1 it=6840256 t=1200s
+(14,20) nosso=131 bestd:  | FALHOU m=14 n=20 k=132 melhor_custo=1 it=6414464 t=1200s
+(14,20) nosso=131 randw: k=131 | FALHOU m=14 n=20 k=132 melhor_custo=1 it=6440960 t=1200s
+(14,20) nosso=131 bestw:  | FALHOU m=14 n=20 k=132 melhor_custo=1 it=6433728 t=1200s
+(14,21) nosso=136 randw: k=136 | FALHOU m=14 n=21 k=137 melhor_custo=1 it=6097792 t=1200s
+(14,21) nosso=136 randd: k=136 | FALHOU m=14 n=21 k=137 melhor_custo=1 it=6170240 t=1200s
+(14,21) nosso=136 bestw:  | FALHOU m=14 n=21 k=137 melhor_custo=1 it=5977472 t=1200s
+(14,21) nosso=136 bestd:  | FALHOU m=14 n=21 k=137 melhor_custo=1 it=6178752 t=1200s
+(14,22) nosso=142 randd: k=142 | FALHOU m=14 n=22 k=143 melhor_custo=1 it=5601792 t=1200s
+(14,22) nosso=142 bestd:  | FALHOU m=14 n=22 k=143 melhor_custo=1 it=5567424 t=1200s
+(14,22) nosso=142 bestw:  | FALHOU m=14 n=22 k=143 melhor_custo=1 it=5713600 t=1200s
+(14,22) nosso=142 randw: k=142 | FALHOU m=14 n=22 k=143 melhor_custo=1 it=5661696 t=1200s
+(14,23) nosso=146 randd: k=146 | FALHOU m=14 n=23 k=147 melhor_custo=1 it=5345856 t=1200s
+(14,23) nosso=146 randw: k=146 | FALHOU m=14 n=23 k=147 melhor_custo=1 it=5356032 t=1200s
+(14,23) nosso=146 bestd:  | FALHOU m=14 n=23 k=147 melhor_custo=1 it=5320832 t=1200s
+(14,23) nosso=146 bestw:  | FALHOU m=14 n=23 k=147 melhor_custo=1 it=5063808 t=1200s
+(15,19) nosso=136 randd: k=136 | FALHOU m=15 n=19 k=137 melhor_custo=5 it=5554880 t=1200s
+(15,19) nosso=136 randw: k=136 | FALHOU m=15 n=19 k=137 melhor_custo=5 it=5145664 t=1200s
+(15,20) nosso=139 randd: k=139 | FALHOU m=15 n=20 k=140 melhor_custo=1 it=4965568 t=1200s
+(15,20) nosso=139 bestd:  | FALHOU m=15 n=20 k=140 melhor_custo=1 it=4794304 t=1200s
+(15,19) nosso=136 bestw:  | FALHOU m=15 n=19 k=137 melhor_custo=5 it=5334720 t=1200s
+(15,19) nosso=136 bestd:  | FALHOU m=15 n=19 k=137 melhor_custo=5 it=5194688 t=1200s
+(15,20) nosso=139 randw: k=139 | FALHOU m=15 n=20 k=140 melhor_custo=1 it=5008768 t=1200s
+(15,21) nosso=144 randd: k=144 | FALHOU m=15 n=21 k=145 melhor_custo=2 it=4530752 t=1200s
+(15,21) nosso=144 randw: k=144 | FALHOU m=15 n=21 k=145 melhor_custo=2 it=4654720 t=1200s
+(15,20) nosso=139 bestw:  | FALHOU m=15 n=20 k=140 melhor_custo=1 it=4736512 t=1200s
+(15,21) nosso=144 bestw:  | FALHOU m=15 n=21 k=145 melhor_custo=2 it=4212096 t=1200s
+(15,21) nosso=144 bestd:  | FALHOU m=15 n=21 k=145 melhor_custo=2 it=4405888 t=1200s
+(15,22) nosso=150 randd: k=150 | FALHOU m=15 n=22 k=151 melhor_custo=2 it=4218560 t=1200s
+(15,22) nosso=150 bestd:  | FALHOU m=15 n=22 k=151 melhor_custo=2 it=4165568 t=1200s
+(15,23) nosso=156 randd: k=156 | FALHOU m=15 n=23 k=157 melhor_custo=5 it=4066112 t=1200s
+(15,22) nosso=150 bestw:  | FALHOU m=15 n=22 k=151 melhor_custo=2 it=4347328 t=1200s
+(15,23) nosso=156 bestd:  | FALHOU m=15 n=23 k=157 melhor_custo=5 it=4389696 t=1200s
+(15,22) nosso=150 randw: k=150 | FALHOU m=15 n=22 k=151 melhor_custo=2 it=4578240 t=1200s
+(15,23) nosso=156 randw: k=156 | FALHOU m=15 n=23 k=157 melhor_custo=5 it=3934272 t=1200s
+(15,23) nosso=156 bestw:  | FALHOU m=15 n=23 k=157 melhor_custo=5 it=4218048 t=1200s
+(16,17) nosso=132 randd: k=132 | FALHOU m=16 n=17 k=133 melhor_custo=2 it=5596864 t=1200s
+(16,17) nosso=132 bestd:  | FALHOU m=16 n=17 k=133 melhor_custo=2 it=5799808 t=1200s
+(16,17) nosso=132 bestw:  | FALHOU m=16 n=17 k=133 melhor_custo=2 it=5568896 t=1200s
+(16,18) nosso=137 randw: k=137 | FALHOU m=16 n=18 k=138 melhor_custo=2 it=4100992 t=1200s
+(16,17) nosso=132 randw: k=132 | FALHOU m=16 n=17 k=133 melhor_custo=2 it=5682880 t=1200s
+(16,18) nosso=137 randd: k=137 | FALHOU m=16 n=18 k=138 melhor_custo=2 it=5142272 t=1200s
+(16,18) nosso=137 bestd:  | FALHOU m=16 n=18 k=138 melhor_custo=2 it=5457792 t=1200s
+(16,18) nosso=137 bestw:  | FALHOU m=16 n=18 k=138 melhor_custo=2 it=4891328 t=1200s
+(16,19) nosso=142 randd: k=142 | FALHOU m=16 n=19 k=143 melhor_custo=1 it=4315584 t=1200s
+(16,19) nosso=142 bestw:  | FALHOU m=16 n=19 k=143 melhor_custo=1 it=4220928 t=1200s
+(16,19) nosso=142 bestd:  | FALHOU m=16 n=19 k=143 melhor_custo=1 it=4093696 t=1200s
+(16,20) nosso=147 bestd:  | FALHOU m=16 n=20 k=148 melhor_custo=2 it=4005824 t=1200s
+(16,19) nosso=142 randw: k=142 | FALHOU m=16 n=19 k=143 melhor_custo=1 it=4383744 t=1200s
+(16,20) nosso=147 randd: k=147 | FALHOU m=16 n=20 k=148 melhor_custo=2 it=4323904 t=1200s
+(16,20) nosso=147 randw: k=147 | FALHOU m=16 n=20 k=148 melhor_custo=2 it=3648384 t=1200s
+(16,21) nosso=152 randd: k=152 | FALHOU m=16 n=21 k=153 melhor_custo=1 it=3539904 t=1200s
+(16,20) nosso=147 bestw:  | FALHOU m=16 n=20 k=148 melhor_custo=2 it=4249984 t=1200s
+(16,21) nosso=152 bestw:  | FALHOU m=16 n=21 k=153 melhor_custo=1 it=4003520 t=1200s
+(16,21) nosso=152 randw: k=152 | FALHOU m=16 n=21 k=153 melhor_custo=1 it=3719232 t=1200s
+(16,21) nosso=152 bestd:  | FALHOU m=16 n=21 k=153 melhor_custo=3 it=3987648 t=1200s
+(16,22) nosso=158 randd: k=158 | FALHOU m=16 n=22 k=159 melhor_custo=3 it=3420928 t=1200s
+(16,22) nosso=158 bestd:  | FALHOU m=16 n=22 k=159 melhor_custo=3 it=3540160 t=1200s
+(16,22) nosso=158 bestw:  | FALHOU m=16 n=22 k=159 melhor_custo=3 it=3292160 t=1200s
+(16,22) nosso=158 randw: k=158 | FALHOU m=16 n=22 k=159 melhor_custo=3 it=3637056 t=1200s
+(16,23) nosso=163 randd: k=163 | FALHOU m=16 n=23 k=164 melhor_custo=1 it=3426752 t=1200s
+(16,23) nosso=163 randw: k=163 | FALHOU m=16 n=23 k=164 melhor_custo=1 it=3326272 t=1200s
+(16,23) nosso=163 bestd:  | FALHOU m=16 n=23 k=164 melhor_custo=1 it=3350592 t=1200s
+(16,23) nosso=163 bestw:  | FALHOU m=16 n=23 k=164 melhor_custo=1 it=3473536 t=1200s

@@ -168,7 +168,9 @@ with open(f"{GEN}/heatmap.tex", "w") as f:
 
 # Tabela unica: os casos abertos de [BNRL26, Fig. 2], antes e depois deste trabalho.
 # Um limite superior recebe \dag se a sua cadeia de deducao chega a um preprint.
-PREPRINT = {"Afrasyab26", "Hou26", "Afrasyab26/Hou26", "dfield26"}
+# "orderly" (Secao 4) usa na poda z(12,19)<=114 e z(12,20)<=120 de Afrasyab; "LP" nao usa
+# valores externos.
+PREPRINT = {"Afrasyab26", "Hou26", "Afrasyab26/Hou26", "dfield26", "orderly"}
 
 
 def ub_depends_on_preprint(k, seen=()):

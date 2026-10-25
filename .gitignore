@@ -33,3 +33,18 @@ paper/*.fdb_latexmk
 paper/*.blg
 paper/*.out
 paper/arxiv.tar.gz
+
+# approaches/: guarda codigo, READMEs, certificados das provas e logs das enumeracoes
+approaches/**/__pycache__/
+approaches/**/tmp/
+approaches/lns_sat/state/
+approaches/lp_profiles/work/
+approaches/lp_profiles/certs*/
+approaches/lp_profiles/logs*/
+approaches/lp_profiles/certificates/partial/
+approaches/orderly/orderly
+approaches/orderly/brute
+approaches/tabu/tabu
+approaches/**/*.cnf
+approaches/tabu/runs/
+approaches/tabu/logs/

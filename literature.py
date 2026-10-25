@@ -127,6 +127,21 @@ def push_ub(key, val, why):
     return False
 
 
+# Limites superiores novos deste trabalho, provados por computador (approaches/):
+#   LP: eliminacao de todos os perfis de grau com certificados de Farkas exatos
+#       (approaches/lp_profiles/certificates/proofs/); nao usa valores externos.
+#   orderly: enumeracao exaustiva por geracao ordenada (approaches/orderly/); usa na poda
+#       z(12,19) <= 114 e z(12,20) <= 120 de Afrasyab (preprint).
+OUR_UB = {
+    (13, 21): (133, "LP"), (13, 23): (142, "LP"), (14, 23): (152, "LP"),
+    (15, 21): (151, "LP"), (15, 22): (156, "LP"), (15, 23): (161, "LP"),
+    (16, 21): (160, "LP"), (16, 22): (165, "LP"), (16, 23): (171, "LP"),
+    (13, 19): (121, "orderly"), (13, 20): (125, "orderly"),
+}
+for k, (v, s) in OUR_UB.items():
+    if v < ub[k][0]:
+        ub[k] = (v, s)
+
 changed = True
 while changed:
     changed = False
