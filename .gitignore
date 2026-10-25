@@ -48,3 +48,4 @@ approaches/tabu/tabu
 approaches/**/*.cnf
 approaches/tabu/runs/
 approaches/tabu/logs/
+approaches/**/.watch_*
