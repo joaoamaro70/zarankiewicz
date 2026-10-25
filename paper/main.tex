@@ -14,7 +14,7 @@
 
 \input{gen/macros.tex}
 
-\title{\bfseries\boldmath New bounds and three exact values\\ for the Zarankiewicz numbers $z(m,n;3,3)$}
+\title{\bfseries\boldmath Improved bounds for the Zarankiewicz numbers $z(m,n;3,3)$}
 \author{JO\~AO AMARO}
 \date{\today}
 
@@ -26,9 +26,9 @@ We improve the best known lower bounds for \NumImprovedWord{} Zarankiewicz
 numbers $z(m,n;3,3)$, with $\Mmin\le m\le \Mmax$ and $\Nmin\le n\le \Nmax$,
 by up to \MaxGain. The new matrices were found by a local search that
 treats all cells together and passes each improvement to the neighbouring
-cells. An elementary deletion argument applied to known values also
-improves \NumUBImprovedWord{} upper bounds and determines \ClosedList. We
-summarize the bounds from the recent literature in this range.
+cells. An elementary deletion argument applied to known exact values also
+improves \NumUBImprovedWord{} upper bounds. We summarize the bounds from
+the recent literature in this range.
 \end{abstract}
 
 \section{Introduction}
@@ -47,7 +47,8 @@ Recently, Bhan et al.~\cite{BNRL26} used an LLM-guided evolutionary search
 to find lower bounds for $8\le m\le 16$, $16\le n\le 23$. They determined
 three values exactly and left \NumOpen{} cells open. Some of these were
 later settled or improved by Afrasyab~\cite{Afr26}, Hou~\cite{Hou26} and
-Saurabh~\cite{Sau26}.
+Saurabh~\cite{Sau26}, and in a public repository of computer-certified
+results~\cite{Fie26}.
 
 This note builds on these works and makes three contributions.
 \begin{itemize}
@@ -56,8 +57,9 @@ This note builds on these works and makes three contributions.
     matrices found by a local search.
   \item \emph{Upper bounds} (Section~\ref{sec:upper}). Applying the density
     lemma of Collins et al.~\cite{CRWR16} to exact values from
-    \cite{Tan22,CRWR16,Afr26} improves \NumUBImproved{} upper bounds and
-    settles \ClosedList.
+    \cite{Tan22,CRWR16,Afr26} improves \NumUBImproved{} upper bounds. The
+    same argument had already been used in~\cite{Fie26} to settle three
+    cells.
   \item \emph{Summary} (Section~\ref{sec:known}). Table~\ref{tab:summary}
     and Figure~\ref{fig:heatmap} give the bounds for all \NumOpen{} cells
     with their sources. Some cells listed as open in~\cite{BNRL26} were
@@ -71,8 +73,8 @@ the tables are available at
 \centering
 \input{gen/heatmap.tex}
 \caption{Bounds for $z(m,n;3,3)$, in the style of
-\cite[Figure~2]{BNRL26}. Beige cells show values that are known exactly,
-including the three settled in Section~\ref{sec:upper}. In the other
+\cite[Figure~2]{BNRL26}. Beige cells show values that are known exactly.
+In the other
 cells, the top number is the best known upper bound, the bottom number is
 the best lower bound, and the colour shows the gap between them.
 ``$a\to\mathbf{b}$'' marks our improvement from the previous best bound $a$
@@ -98,11 +100,18 @@ We collected the bounds for this range from the following sources.
   \item Hou~\cite{Hou26}: explicit matrices settling the cells in
     $\{13,14,15\}\times\{17,18\}$.
   \item Saurabh~\cite{Sau26}: five improved lower bounds.
+  \item The repository~\cite{Fie26}: the exact values $z(9,23)=103$,
+    $z(10,21)=106$, $z(10,22)=110$, $z(10,23)=112$, $z(11,19)=106$,
+    $z(11,20)=111$, $z(11,23)=123$ and $z(12,23)=134$, with explicit
+    matrices and machine-checked certificates (Lean, DRAT/LRAT and VIPR).
+    Three of them, $z(10,21)$, $z(11,19)$ and $z(11,20)$, follow from the
+    deletion argument of Section~\ref{sec:upper}.
 \end{itemize}
-The 2026 preprints \cite{Afr26,Hou26,Sau26} are not yet peer reviewed.
-Their lower bounds are explicit matrices that can be checked directly.
-Their upper bounds rely on computer-assisted proofs that, as Afrasyab
-notes, still await independent reproduction.
+The 2026 preprints \cite{Afr26,Hou26,Sau26} and the repository
+\cite{Fie26} are not peer reviewed. Their lower bounds are explicit
+matrices that can be checked directly. Their upper bounds rely on
+computer-assisted proofs that, as their authors note, still await
+independent review.
 
 \paragraph{Elementary bounds.} Two simple facts relate neighbouring cells.
 Appending a column with two ones creates no $3\times3$ all-ones submatrix,
@@ -141,7 +150,7 @@ previous best bounds with their sources, and
 the new bounds from this note (in bold). ``via $(a,b)$'' means that the
 bound follows from the bound for $(a,b)$ by \eqref{eq:mono} or
 \eqref{eq:monoup}. A dagger marks upper bounds that depend on a
-computer-assisted proof in a preprint~\cite{Afr26,Hou26}.}
+computer-assisted proof that is not yet peer reviewed~\cite{Afr26,Hou26,Fie26}.}
 \label{tab:summary}\\
 \toprule
  & \multicolumn{3}{c}{upper bound} & \multicolumn{4}{c}{lower bound} & \\
@@ -242,19 +251,18 @@ ancillary files.
 We applied \eqref{eq:monoup} to the previous upper bounds and exact values,
 over the whole range and until nothing changed. This improves
 \NumUBImproved{} upper bounds (column ``new'' of the upper bounds in
-Table~\ref{tab:summary}) and settles three cells.
+Table~\ref{tab:summary}).
 
-For example, an $11\times19$ matrix with $107$ ones has a column with at
-most $\lfloor107/19\rfloor=5$ ones. Deleting it leaves an $11\times18$
-matrix with at least $102$ ones, which contradicts $z(11,18)=101$
-\cite{Tan22}. Hence $z(11,19)\le106$, and with the lower bound $106$ from
-\eqref{eq:mono} we get $z(11,19)=106$. In the same way, deleting a row
-shows that $z(9,21)=96$ \cite{Tan22} gives $z(10,21)\le106$, and deleting a
-column shows that $z(11,19)\le106$ gives $z(11,20)\le111$; both match the
-lower bounds of \cite{BNRL26}. The other improvements follow by short
-chains of the same argument. For example, $z(13,18)=116$ \cite{CRWR16,Hou26}
-gives $z(13,19)\le122$, and $z(14,18)=124$ gives $z(14,19)\le130$. We have
-not found these deductions in the literature.
+The argument is a single deletion step, repeated. For example, a
+$13\times19$ matrix with $123$ ones has a column with at most
+$\lfloor123/19\rfloor=6$ ones. Deleting it leaves a $13\times18$ matrix with
+at least $117$ ones, which contradicts $z(13,18)=116$ \cite{CRWR16,Hou26}.
+Hence $z(13,19)\le122$. In the same way, $z(14,18)=124$ \cite{CRWR16}
+gives $z(14,19)\le130$, and that bound in turn gives $z(14,20)\le136$.
+Applied to the exact values of Tan~\cite{Tan22}, the same argument settles
+$z(10,21)=106$, $z(11,19)=106$ and $z(11,20)=111$; these three values had
+already been obtained in this way in~\cite{Fie26}. To our knowledge, the
+other improved upper bounds have not appeared before.
 
 Each improved upper bound is only as reliable as the value its chain starts
 from. Seven of them, marked with a dagger in Table~\ref{tab:summary}, start
@@ -264,15 +272,17 @@ from the bounds compiled in \cite{BNRL26}.
 
 \section{Remarks}
 
-The largest remaining gap is $10$, for $z(16,23)\in[163,173]$. Several
-cells are within one of being settled, such as $z(9,23)\in[103,104]$,
-$z(10,22)\in[110,111]$ and $z(16,17)\in[132,133]$, and others within two,
-such as $z(13,19)\in[120,122]$ and $z(14,19)\in[128,130]$. For these,
-exact methods seem more promising than local search. A plain SAT encoding
+The largest remaining gap is $10$, for $z(16,23)\in[163,173]$. The
+smallest are $z(16,17)\in[132,133]$, $z(13,19)\in[120,122]$ and
+$z(14,19)\in[128,130]$. For these, exact methods seem more promising than
+local search. A plain SAT encoding
 solved by Kissat reproduces the values of \cite{Tan22} up to
 $z(10,11)=64$, but in 1.5 hours it did not find a $16\times17$ matrix with
-132 ones, which we know exists. Solving small parts of a good matrix
-exactly, while keeping the rest fixed, may work better.
+132 ones, which we know exists. Splitting by column-degree profiles is much
+faster on small cases, but for $10\times n$ some profiles already take more
+than 30 minutes at $n=15$. The proofs in \cite{Afr26,Fie26} instead combine
+such profile reductions with counting and congruence arguments specific to
+each cell, and this seems the more promising route.
 
 \section*{Acknowledgements}
 The search code and a first draft of this note were written with the help

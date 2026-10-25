@@ -25,6 +25,13 @@ S.~Davies, P.~Gill, and D.~Horsley.
 \newblock \href {https://doi.org/10.1016/j.disc.2025.114924}
   {\path{doi:10.1016/j.disc.2025.114924}}.
 
+\bibitem{Fie26}
+{dfield}.
+\newblock finite-zarankiewicz-closures.
+\newblock GitHub repository, 2026.
+\newblock Last updated 15 July 2026; accessed 25 October 2026.
+\newblock URL: \url{https://github.com/dfield/finite-zarankiewicz-closures}.
+
 \bibitem{Guy69}
 R.~K. Guy.
 \newblock A many-facetted problem of {Z}arankiewicz.

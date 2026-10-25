@@ -25,6 +25,7 @@ CITE = {
     "Afrasyab26": r"\cite{Afr26}",
     "Hou26": r"\cite{Hou26}",
     "Afrasyab26/Hou26": r"\cite{Afr26,Hou26}",
+    "dfield26": r"\cite{Fie26}",
 }
 
 
@@ -167,7 +168,7 @@ with open(f"{GEN}/heatmap.tex", "w") as f:
 
 # Tabela unica: os casos abertos de [BNRL26, Fig. 2], antes e depois deste trabalho.
 # Um limite superior recebe \dag se a sua cadeia de deducao chega a um preprint.
-PREPRINT = {"Afrasyab26", "Hou26", "Afrasyab26/Hou26"}
+PREPRINT = {"Afrasyab26", "Hou26", "Afrasyab26/Hou26", "dfield26"}
 
 
 def ub_depends_on_preprint(k, seen=()):

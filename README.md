@@ -1,4 +1,4 @@
-# New bounds and three exact values for the Zarankiewicz numbers z(m,n;3,3)
+# Improved bounds for the Zarankiewicz numbers z(m,n;3,3)
 
 The Zarankiewicz number z(m,n;3,3) is the maximum number of ones in an m×n binary
 matrix with no 3×3 all-ones submatrix. This repository contains:
@@ -6,8 +6,10 @@ matrix with no 3×3 all-ones submatrix. This repository contains:
 - explicit matrices that improve the best known **lower bounds** for 18 of these
   numbers, with 13 ≤ m ≤ 16 and 18 ≤ n ≤ 23, by up to 7;
 - **upper bounds** obtained by applying the density lemma of Collins et al. to known
-  exact values, which improve 22 upper bounds and settle three cells:
-  z(10,21) = 106, z(11,19) = 106 and z(11,20) = 111;
+  exact values, which improve 19 upper bounds. The same argument settles
+  z(10,21) = 106, z(11,19) = 106 and z(11,20) = 111, but these three values had
+  already been obtained in
+  [dfield/finite-zarankiewicz-closures](https://github.com/dfield/finite-zarankiewicz-closures);
 - the search code, an independent verifier, the consolidated bounds from the
   literature with their sources, and the LaTeX note describing everything.
 
@@ -17,7 +19,7 @@ matrix with no 3×3 all-ones submatrix. This repository contains:
 
 ![Bounds for z(m,n;3,3)](paper/figures/bounds.png)
 
-Beige cells are values known exactly, including the three settled here. In the other
+Beige cells are values known exactly. In the other
 cells the top number is the best known upper bound, the bottom number the best lower
 bound, and the colour the gap between them; "a → **b**" marks an improvement from the
 previous best bound a to b.
@@ -44,8 +46,9 @@ previous best bound a to b.
 | (16,23) | 158 | 163 | 173 |
 
 The source of every bound is listed in `literature.csv` and in Table 1 of the note.
-Some upper bounds depend on a computer-assisted proof in a preprint (arXiv:2608.08154);
-they are marked in the note.
+Some upper bounds depend on computer-assisted proofs that are not yet peer reviewed
+(arXiv:2608.08154, arXiv:2608.08549, and the dfield repository above); they are marked
+in the note.
 
 ## The matrices
 
@@ -98,7 +101,7 @@ The search compiles inside the container with `-march=native`, resumes from
 
 ## Attempted check of z(13,22) ≤ 137
 
-Twelve upper bounds in the note depend on z(13,22) = 137, whose upper bound comes from a
+Seven of the new upper bounds depend on z(13,22) = 137, whose upper bound comes from a
 computer-assisted proof in a preprint (arXiv:2608.08154). We tried to check it
 independently. A counting argument (`sat/afr_step1.py`) leaves 83 column-degree profiles
 for a 13×22 matrix with 138 ones, as stated in the preprint. We then asked Kissat, profile

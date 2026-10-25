@@ -58,6 +58,11 @@ UB_LIT = {
     (12, 21): (126, "Afrasyab26"), (13, 22): (137, "Afrasyab26"),
     # Tan (2022, arXiv 2203.02283), Tabela 3, valores em negrito (exatos)
     (10, 20): (102, "Tan22"), (11, 18): (101, "Tan22"),
+    # repositorio github.com/dfield/finite-zarankiewicz-closures (ultimo commit 15/07/2026),
+    # valores exatos com certificados; nao revisado por pares
+    (9, 23): (103, "dfield26"), (10, 21): (106, "dfield26"), (10, 22): (110, "dfield26"),
+    (10, 23): (112, "dfield26"), (11, 19): (106, "dfield26"), (11, 20): (111, "dfield26"),
+    (11, 23): (123, "dfield26"), (12, 23): (134, "dfield26"),
 }
 # Limites inferiores de outras fontes, todos com matriz explicita (ficam os maiores)
 LB_LIT = {
@@ -70,6 +75,10 @@ LB_LIT = {
     # Saurabh (arXiv 2608.26603)
     (13, 19): (118, "Saurabh26"), (14, 19): (126, "Saurabh26"), (16, 18): (136, "Saurabh26"),
     (14, 20): (126, "Saurabh26"), (16, 19): (136, "Saurabh26"),
+    # repositorio dfield (matrizes explicitas dos valores exatos)
+    (9, 23): (103, "dfield26"), (10, 21): (106, "dfield26"), (10, 22): (110, "dfield26"),
+    (10, 23): (112, "dfield26"), (11, 19): (106, "dfield26"), (11, 20): (111, "dfield26"),
+    (11, 23): (123, "dfield26"), (12, 23): (134, "dfield26"),
 }
 
 cells = [(m, n) for m in MS for n in NS]
