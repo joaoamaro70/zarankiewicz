@@ -11,6 +11,17 @@ matrix with no 3×3 all-ones submatrix. This repository contains:
 - the search code, an independent verifier, the consolidated bounds from the
   literature with their sources, and the LaTeX note describing everything.
 
+**Paper:** [paper/main.pdf](paper/main.pdf)
+
+## Results
+
+![Bounds for z(m,n;3,3)](paper/figures/bounds.png)
+
+Beige cells are values known exactly, including the three settled here. In the other
+cells the top number is the best known upper bound, the bottom number the best lower
+bound, and the colour the gap between them; "a → **b**" marks an improvement from the
+previous best bound a to b.
+
 | (m,n) | previous lower bound | new lower bound | upper bound |
 |---|---|---|---|
 | (13,19) | 119 | 120 | 122 |
@@ -36,6 +47,12 @@ The source of every bound is listed in `literature.csv` and in Table 1 of the no
 Some upper bounds depend on a computer-assisted proof in a preprint (arXiv:2608.08154);
 they are marked in the note.
 
+## The matrices
+
+The 18 matrices with improved lower bounds (black = 1, white = 0):
+
+![The 18 matrices](paper/figures/matrices.png)
+
 ## Verify the matrices
 
 Each matrix is in `results/Z_m_n.txt`, one row per line. The checker is plain Python
@@ -56,7 +73,7 @@ It tests every triple of rows and, independently, every triple of columns.
 | `search/` | the local search (C + OpenMP) and a script to build and run it |
 | `literature.py` | bounds from the literature (with sources), closed under the elementary rules; writes `literature.csv` for all 72 cells |
 | `sat/` | SAT encodings (Kissat) and their self-tests; also an attempted independent per-profile check of z(13,22) ≤ 137, which did not finish (see below) |
-| `paper/` | the LaTeX note; `paper/build.sh` regenerates its tables from `results/` |
+| `paper/` | the LaTeX note; `paper/build.sh` regenerates its tables, figures and the README images from `results/` |
 | `Dockerfile` | Ubuntu 24.04 with gcc, Python, TeX Live and Kissat |
 
 ## Reproduce

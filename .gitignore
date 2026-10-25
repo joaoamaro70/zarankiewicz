@@ -23,6 +23,8 @@ sat/runs/
 sat/prun/
 sat/test/
 sat/ptest/
+sat/calib/
+sat/pf/
 
 # LaTeX
 paper/*.aux
