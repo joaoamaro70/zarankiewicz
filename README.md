@@ -64,6 +64,15 @@ python3 verify.py results/Z_*.txt
 
 It tests every triple of rows and, independently, every triple of columns.
 
+## Found a better matrix?
+
+If you find a matrix that beats any lower bound here, or a better upper bound, please
+share it. Open an [issue](https://github.com/joaoamaro70/zarankiewicz/issues) or a pull
+request with the matrix in the same format as `results/Z_m_n.txt` (one row per line,
+`0`/`1`), after checking it with `python3 verify.py your_file.txt`. New results from the
+literature that are missing here are just as welcome. Every confirmed improvement will
+be added to the tables with credit to its author.
+
 ## Layout
 
 | Path | Contents |
